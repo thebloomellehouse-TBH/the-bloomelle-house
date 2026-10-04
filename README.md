@@ -15,7 +15,7 @@ Static website (HTML, CSS and a little JavaScript). No build step.
 
 ## Settings to edit
 Near the bottom of `index.html`, find `var CFG = {` and update:
-- `phone`: WhatsApp and call number with country code (currently 918318042886)
+- `phone`: WhatsApp and call number with country code (currently 918318042885)
 - `facebook` and `messenger`: replace `YOUR_FACEBOOK_PAGE_NAME` with your page name. Until then these icons stay hidden.
 - `instagram`, `linkedin`, `youtube`, `reviews`: already set.
 
