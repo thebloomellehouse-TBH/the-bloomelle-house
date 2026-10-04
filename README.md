@@ -4,7 +4,7 @@ Static website (HTML, CSS and a little JavaScript). No build step.
 
 ## Files
 - `index.html` : the whole website
-- `assets/` : assets/logo.png, assets/hero.mp4, assets/hero-poster.jpg, assets/bridal-before.jpg, assets/bridal-after.jpg, assets/hair-before.jpg, assets/hair-after.jpg, assets/nails-before.jpg, assets/nails-after.jpg
+- `assets/` : logo.png, hero.mp4, hero-poster.jpg, bridal-before.jpg, bridal-after.jpg, hair-before.jpg, hair-after.jpg, nails-before.jpg, nails-after.jpg
 - `.nojekyll` : tells GitHub Pages to serve the files as they are
 
 ## Publish on GitHub Pages
