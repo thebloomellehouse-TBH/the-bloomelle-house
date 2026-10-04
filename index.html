@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Bloomelle House | Home Salon & Bridal Makeup in Jhansi</title>
+<meta name="description" content="Premium bridal makeup, party looks, hair styling, nail extensions and pre-bridal care at your doorstep in Jhansi.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF3EF; --surface:#FFFFFF; --ink:#3A1220; --muted:#7A5560; --burg:#3A0A1B; --burg2:#240510;
+  --rose:#E6B3A5; --rose-soft:#F3DAD2; --line:#EAD3CB; --on-burg:#FBF3EF;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif; --sans:"Jost",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#1F0710;--surface:#2E0C1A;--ink:#F6E7E1;--muted:#C9A9A6;--burg:#3A0A1B;--burg2:#1A040C;--rose-soft:#4A2330;--line:#4A2330}
+}
+:root[data-theme="dark"]{--bg:#1F0710;--surface:#2E0C1A;--ink:#F6E7E1;--muted:#C9A9A6;--burg:#3A0A1B;--burg2:#1A040C;--rose-soft:#4A2330;--line:#4A2330}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0}
+h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:.5rem}
+p{margin:0 0 1rem;max-width:62ch}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.sub{color:var(--muted);margin-bottom:2rem}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--burg2);color:var(--on-burg)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;text-decoration:none;color:#E6B3A5;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.logo img{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--rose)}
+.herologo{width:132px;height:132px;border-radius:50%;border:2px solid var(--rose);margin-bottom:24px;display:block}
+nav{display:flex;gap:20px;overflow-x:auto}
+nav a{text-decoration:none;font-size:.95rem;white-space:nowrap;color:var(--on-burg)}
+nav a:hover{color:#E0A99A}
+
+/* buttons */
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;border:1.5px solid var(--rose);background:var(--rose);color:var(--burg2);font:500 1rem var(--sans);text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:inherit}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* hero */
+.hero{background:radial-gradient(900px 420px at 85% 10%,#5E1630 0%,transparent 60%),var(--burg);color:var(--on-burg);padding:96px 0 88px}
+.hero h1{font-size:clamp(2.8rem,9vw,5.6rem);color:#EDBFB0;letter-spacing:-.01em;margin-bottom:1rem}
+.hero p{font-size:1.15rem;color:#F1DDD6}
+.hero .btn.ghost{color:var(--on-burg)}
+
+.herogrid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.heroart{width:100%;max-width:400px;height:auto;display:block;margin:0 auto}
+.herophoto{width:100%;height:auto;display:block;border-radius:22px;border:2px solid var(--rose);box-shadow:0 30px 60px -28px rgba(0,0,0,.7)}
+@media(max-width:760px){.herogrid{grid-template-columns:1fr}}
+
+/* services */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card h3{font-size:1.5rem;margin:.4rem 0 .4rem}
+.card p{color:var(--muted);font-size:.96rem;margin:0}
+.ico{font-size:1.6rem}
+
+/* gallery */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tile{aspect-ratio:4/5;border-radius:14px;background:linear-gradient(160deg,var(--rose-soft),var(--rose));display:flex;align-items:flex-end;padding:14px;color:var(--burg2);font-weight:500}
+.tile.b{background:linear-gradient(160deg,#7A2640,var(--burg));color:var(--on-burg)}
+
+/* about / area */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:start}
+ul.ticks{list-style:none;padding:0;margin:0}
+ul.ticks li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--line)}
+ul.ticks li:before{content:"✓";position:absolute;left:0;color:var(--rose);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:999px;font-size:.95rem}
+
+/* booking */
+#book{background:var(--burg);color:var(--on-burg)}
+#book .sub{color:#E5CFC8}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px}
+.full{grid-column:1/-1}
+label{display:block;font-size:.92rem;margin-bottom:6px}
+input,select{width:100%;padding:13px 14px;border-radius:10px;border:1.5px solid #8A4A5C;background:#FBF3EF;color:#3A1220;font:400 1rem var(--sans)}
+.err{color:#FFC9C0;font-size:.88rem;min-height:1.2em;margin-top:4px}
+.note{font-size:.9rem;color:#E5CFC8}
+@media(max-width:600px){form{grid-template-columns:1fr}}
+
+/* reviews + footer */
+.stars{color:var(--rose);font-size:1.6rem;letter-spacing:3px}
+footer{background:var(--burg2);color:#E5CFC8;padding:40px 0}
+footer .row{justify-content:space-between;align-items:center}
+footer a{color:#F0C4B6}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;flex-direction:column;gap:10px}
+.fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* premium layer */
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.pair{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 12px 30px -18px rgba(58,10,27,.45)}
+.pair h3{font-size:1.6rem;text-align:center;margin:14px 0 6px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pn{margin:0;position:relative;border-radius:12px;overflow:hidden}
+.pn svg,.pn img{display:block;width:100%;height:auto}
+.pn figcaption{position:absolute;left:8px;bottom:8px;background:rgba(36,5,16,.78);color:#F6D3C8;font-size:.82rem;padding:3px 12px;border-radius:999px}
+.pn.af{outline:2px solid var(--rose);outline-offset:-2px}
+.hero h1{background:linear-gradient(120deg,#F8DCD2,#E6B3A5 45%,#C98B7B);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{position:relative;padding-bottom:14px}
+h2:after{content:"";position:absolute;left:0;bottom:0;width:64px;height:2px;background:linear-gradient(90deg,var(--rose),transparent)}
+.card{border-top:2px solid var(--rose);box-shadow:0 14px 30px -22px rgba(58,10,27,.5);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 34px -20px rgba(58,10,27,.6)}
+.btn{box-shadow:0 8px 22px -10px rgba(230,179,165,.7)}
+section{padding:88px 0}
+.steps{list-style:none;counter-reset:s;margin:2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:6px}
+.steps li:before{content:counter(s);font:600 2.2rem/1 var(--serif);color:var(--rose)}
+.steps b{font-family:var(--serif);font-size:1.4rem;font-weight:600}
+.steps span{color:var(--muted);font-size:.96rem}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+
+.doc{display:none;background:var(--surface)}
+.doc:target{display:block}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font:600 1.3rem var(--serif)}
+details p{margin:.6rem 0 0;color:var(--muted)}
+.soc{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.soc a{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--rose);display:grid;place-items:center;color:var(--rose);text-decoration:none;transition:background .2s,color .2s}
+.soc a:hover{background:var(--rose);color:var(--burg2)}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1.2fr;gap:36px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
+.flogo{font:700 1.7rem var(--serif);color:#E6B3A5;margin-bottom:6px}
+footer h3{font-size:1.4rem;color:#F0C4B6;margin-bottom:10px}
+footer p{margin:0 0 .5rem}
+.flinks{list-style:none;margin:0;padding:0}
+.flinks li{padding:4px 0}
+.flinks a,footer p a{text-decoration:none;color:#E5CFC8}
+.flinks a:hover,footer p a:hover{color:#E6B3A5;text-decoration:underline}
+.copy{margin-top:32px;padding-top:18px;border-top:1px solid #4A2330;font-size:.9rem}
+
+.hero{position:relative;overflow:hidden;min-height:78vh;display:flex;align-items:center}
+.herovideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.heroshade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(36,5,16,.92) 0%,rgba(36,5,16,.7) 45%,rgba(36,5,16,.25) 100%)}
+.herotop{position:relative;z-index:1;grid-template-columns:1fr;width:100%}
+.herotop .herotext{max-width:620px}
+@media(max-width:760px){.heroshade{background:linear-gradient(180deg,rgba(36,5,16,.85),rgba(36,5,16,.7))}.hero{min-height:70vh}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><img src="assets/logo.png" alt="The Bloomelle House logo" width="44" height="44"><span>The Bloomelle House</span></a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#about">About</a>
+      <a href="#area">Areas</a><a href="#reviews">Reviews</a><a href="#book">Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero"><video class="herovideo" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" aria-hidden="true"><source src="assets/hero.mp4" type="video/mp4"></video><div class="heroshade"></div>
+    <div class="wrap herogrid herotop">
+      <div class="herotext">
+      <h1>Salon luxury, at your doorstep.</h1>
+      <p>Bridal makeup, party looks, hair styling, nail extensions and pre-bridal care by professionals who come to you anywhere in Jhansi.</p>
+      <div class="row">
+        <a class="btn" data-wa target="_blank" rel="noopener" href="#">Book an appointment</a>
+      </div>
+      </div>
+      </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>Services</h2>
+      <p class="sub">Every service is done at your home, with professional products and tools.</p>
+      <div class="grid">
+        <div class="card"><div class="ico">👰</div><h3>Bridal Makeup</h3><p>HD, airbrush and long-wear looks for your wedding day and functions.</p></div>
+        <div class="card"><div class="ico">💄</div><h3>Party Makeup</h3><p>Glam looks for engagements, receptions, sangeet and special evenings.</p></div>
+        <div class="card"><div class="ico">💇‍♀️</div><h3>Hair Styling</h3><p>Curls, buns, braids, blow-dry and bridal hairdos.</p></div>
+        <div class="card"><div class="ico">💅</div><h3>Nail Extensions</h3><p>Gel and acrylic extensions with nail art, finished neatly.</p></div>
+        <div class="card"><div class="ico">🌸</div><h3>Pre-Bridal</h3><p>Skin, hair and body care packages in the weeks before your wedding.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" style="background:var(--surface)">
+    <div class="wrap">
+      <h2>Gallery &amp; before / after</h2>
+      <p class="sub">Sample looks of the transformations we create. Real client photos coming soon.</p>
+      <div class="pairs"><div class="pair"><div class="ba"><figure class="pn"><img src="assets/bridal-before.jpg" alt="Bridal makeup before" width="380" height="702" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/bridal-after.jpg" alt="Bridal makeup after" width="380" height="700" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Bridal makeup</h3></div><div class="pair"><div class="ba"><figure class="pn"><img src="assets/hair-before.jpg" alt="Hair styling before" width="380" height="704" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/hair-after.jpg" alt="Hair styling after" width="380" height="702" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Hair styling</h3></div><div class="pair"><div class="ba"><figure class="pn"><img src="assets/nails-before.jpg" alt="Nail extensions before" width="380" height="702" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/nails-after.jpg" alt="Nail extensions after" width="380" height="704" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Nail extensions</h3></div></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap two">
+      <div>
+        <h2>Why choose us</h2>
+        <p>The Bloomelle House brings a personalised, professional beauty experience to your home, so you can get ready in comfort and on your schedule.</p>
+        <div class="soc"><a data-ig target="_blank" rel="noopener" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a data-fb target="_blank" rel="noopener" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.5 21v-7.5H16l.5-3h-3V8.8c0-.9.3-1.5 1.6-1.5h1.5V4.6c-.3 0-1.2-.1-2.2-.1-2.3 0-3.9 1.4-3.9 4v2H8v3h2.5V21z"/></svg></a><a data-li target="_blank" rel="noopener" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 9h3v10H5zM6.5 4.5a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zM10 9h2.9v1.4c.5-.9 1.6-1.6 3.1-1.6 3 0 3.5 2 3.5 4.5V19h-3v-5c0-1.2 0-2.6-1.6-2.6S13 12.800 13 14v5h-3z"/></svg></a><a data-yt target="_blank" rel="noopener" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg></a><a data-wa target="_blank" rel="noopener" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z" fill="currentColor" stroke="none"/></svg></a><a data-ms target="_blank" rel="noopener" href="#" aria-label="Messenger"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path fill-rule="evenodd" d="M12 3C6.9 3 3 6.8 3 11.5c0 2.6 1.2 4.9 3.1 6.4V21l2.9-1.6c.9.2 1.9.4 3 .4 5.1 0 9-3.8 9-8.5S17.1 3 12 3zM6.5 14.2l3.8-4.1 2.7 2.5 3.5-2.6-3.8 4.1-2.7-2.5z"/></svg></a><a data-reviews target="_blank" rel="noopener" href="#" aria-label="Google reviews"><svg viewBox="0 0 24 24" width="20" height="20"><text x="12" y="17.500" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="17" fill="currentColor">G</text></svg></a><a data-mail href="#" aria-label="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></a></div>
+      </div>
+      <ul class="ticks">
+        <li>We come to your home, no travel on your big day</li>
+        <li>Trained professionals and quality products</li>
+        <li>Looks planned around your outfit, skin and taste</li>
+        <li>Clean, sanitised tools for every client</li>
+        <li>Book easily on WhatsApp or Messenger</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="area" style="background:var(--surface)">
+    <div class="wrap">
+      <h2>Service area</h2>
+      <p class="sub">Home visits in Jhansi and nearby areas. Not sure we cover you? Message us.</p>
+      <div class="chips"><span>Jhansi city</span><span>Civil Lines</span><span>Sipri Bazaar</span><span>Elite</span><span>Nearby towns on request</span></div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <h2>Client reviews</h2>
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <p class="sub">See what our clients say on Google.</p>
+      <a class="btn" data-reviews target="_blank" rel="noopener" href="#">Read &amp; write Google reviews</a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>FAQs</h2>
+      <details><summary>Which services do you offer?</summary><p>Bridal makeup, party makeup, hair styling, nail extensions and pre-bridal care.</p></details>
+      <details><summary>Do you come to my home?</summary><p>Yes. All services are done at your doorstep in Jhansi and nearby areas.</p></details>
+      <details><summary>How do I book?</summary><p>Fill in the form on this page, or message or call us on 8318042886. We confirm your slot on WhatsApp.</p></details>
+      <details><summary>What are your working hours?</summary><p>9 AM to 6 PM, Monday to Saturday.</p></details>
+      <details><summary>Can I book a bridal date in advance?</summary><p>Yes. Message us as early as you can so your date is held for you.</p></details>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>How booking works</h2>
+      <ol class="steps">
+        <li><b>Send your request</b><span>Fill in the form below or message us on WhatsApp.</span></li>
+        <li><b>We confirm your slot</b><span>We reply with date, time and the look that suits you.</span></li>
+        <li><b>We arrive at your door</b><span>Our team comes with everything needed, and you relax at home.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap">
+      <h2>Request an appointment</h2>
+      <p class="sub">Share your details and we will confirm your slot on WhatsApp.</p>
+      <form id="f" novalidate>
+        <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required><div class="err" data-for="name"></div></div>
+        <div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><div class="err" data-for="phone"></div></div>
+        <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><div class="err" data-for="email"></div></div>
+        <div><label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="">Choose a service</option>
+            <option>Bridal Makeup</option><option>Party Makeup</option><option>Hair Styling</option>
+            <option>Nail Extensions</option><option>Pre-Bridal</option><option>Other / not sure</option>
+          </select><div class="err" data-for="service"></div></div>
+        <div class="full"><label for="location">Location (area in Jhansi)</label><input id="location" name="location" autocomplete="street-address" required><div class="err" data-for="location"></div></div>
+        <div class="full row">
+          <button class="btn" type="submit">Send on WhatsApp</button>
+          <button class="btn ghost" type="button" id="msgr" style="color:var(--on-burg)">Send on Messenger</button>
+        </div>
+        <p class="full note" id="status" role="status"></p>
+      </form>
+    </div>
+  </section>
+<section class="doc" id="terms"><div class="wrap"><h2>Terms &amp; Conditions</h2><ul class="ticks"><li>Bookings are confirmed only after we reply on WhatsApp or by phone.</li><li>Please share an accurate address and a working phone number.</li><li>Prices and the final service list are confirmed at the time of booking.</li><li>Tell us about any skin allergies before your service.</li><li>Please inform us in advance to reschedule or cancel a booking.</li></ul><p><a class="btn ghost" style="color:var(--ink)" href="#top">Back to home</a></p></div></section><section class="doc" id="privacy"><div class="wrap"><h2>Privacy Policy</h2><p>When you send a booking request we receive your name, phone number, email, chosen service and location. We use them only to confirm and deliver your appointment and to contact you about it.</p><p>This website does not store your details. The form opens WhatsApp or Messenger with your message, which you then send to us. We do not sell your information.</p><p>To ask us to delete your details, email thebloomellehouse@gmail.com.</p><p><a class="btn ghost" style="color:var(--ink)" href="#top">Back to home</a></p></div></section><section class="doc" id="blogs"><div class="wrap"><h2>Blogs</h2><p>Beauty tips and bridal guides are coming soon. Follow us on YouTube and Instagram for updates.</p><p><a class="btn ghost" style="color:var(--ink)" href="#top">Back to home</a></p></div></section>
+</main>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <div class="flogo">The Bloomelle House</div>
+      <p>Premium salon and beauty services at your doorstep in Jhansi.</p>
+      <div class="soc"><a data-ig target="_blank" rel="noopener" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a data-fb target="_blank" rel="noopener" href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.5 21v-7.5H16l.5-3h-3V8.8c0-.9.3-1.5 1.6-1.5h1.5V4.6c-.3 0-1.2-.1-2.2-.1-2.3 0-3.9 1.4-3.9 4v2H8v3h2.5V21z"/></svg></a><a data-li target="_blank" rel="noopener" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 9h3v10H5zM6.5 4.5a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zM10 9h2.9v1.4c.5-.9 1.6-1.6 3.1-1.6 3 0 3.5 2 3.5 4.5V19h-3v-5c0-1.2 0-2.6-1.6-2.6S13 12.800 13 14v5h-3z"/></svg></a><a data-yt target="_blank" rel="noopener" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg></a><a data-wa target="_blank" rel="noopener" href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z" fill="currentColor" stroke="none"/></svg></a><a data-ms target="_blank" rel="noopener" href="#" aria-label="Messenger"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path fill-rule="evenodd" d="M12 3C6.9 3 3 6.8 3 11.5c0 2.6 1.2 4.9 3.1 6.4V21l2.9-1.6c.9.2 1.9.4 3 .4 5.1 0 9-3.8 9-8.5S17.1 3 12 3zM6.5 14.2l3.8-4.1 2.7 2.5 3.5-2.6-3.8 4.1-2.7-2.5z"/></svg></a><a data-reviews target="_blank" rel="noopener" href="#" aria-label="Google reviews"><svg viewBox="0 0 24 24" width="20" height="20"><text x="12" y="17.500" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="17" fill="currentColor">G</text></svg></a><a data-mail href="#" aria-label="Email"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></a></div>
+    </div>
+    <div>
+      <h3>Quick links</h3>
+      <ul class="flinks">
+        <li><a href="#about">About US</a></li><li><a href="#contact">Contact US</a></li><li><a href="#faq">FAQs</a></li>
+        <li><a href="#terms">Terms and condition</a></li><li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+      </ul>
+    </div>
+    <div id="contact">
+      <h3>Contact</h3>
+      <p>Mobile: <a data-call href="#">+91 8318042886</a></p>
+      <p>Email: <a data-mail href="#">thebloomellehouse@gmail.com</a></p>
+      <p>Business hours: 9 AM - 6 PM (Mon - Sat)</p>
+    </div>
+  </div>
+  <div class="wrap copy">© <span id="yr"></span> The Bloomelle House · Jhansi</div>
+</footer>
+
+<div class="fab">
+  <a data-wa href="#" aria-label="WhatsApp" style="background:#25D366;color:#fff">💬</a>
+  <a data-call href="#" aria-label="Call" style="background:var(--rose);color:var(--burg2)">📞</a>
+</div>
+
+<script>
+/* ====== EDIT THESE ====== */
+var CFG = {
+  phone:     "918318042886",
+  email:     "thebloomellehouse@gmail.com",
+  youtube:   "https://www.youtube.com/@THEBLOOMELLEHOUSE-02",
+  instagram: "https://www.instagram.com/thebloomellehouse",
+  linkedin:  "https://www.linkedin.com/in/the-bloomelle-house-beauty",
+  facebook:  "https://www.facebook.com/YOUR_FACEBOOK_PAGE_NAME",
+  messenger: "YOUR_FACEBOOK_PAGE_NAME",
+  reviews:   "https://g.page/r/CUHMA8DSdlUHECE/review"
+};
+/* ======================== */
+function each(sel, fn){ Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+function setLink(sel,url){ each(sel,function(a){ if(/YOUR_/.test(url)){ a.style.display="none"; } else { a.href=url; } }); }
+each("[data-wa]",  function(a){ a.href = "https://wa.me/" + CFG.phone + "?text=" + encodeURIComponent("Hi The Bloomelle House, I'd like to book an appointment."); a.target = "_blank"; a.rel = "noopener"; });
+each("[data-call]",function(a){ a.href = "tel:+" + CFG.phone; });
+each("[data-mail]",function(a){ a.href = "mailto:" + CFG.email; });
+setLink("[data-ig]",CFG.instagram); setLink("[data-li]",CFG.linkedin); setLink("[data-fb]",CFG.facebook); setLink("[data-yt]",CFG.youtube);
+setLink("[data-ms]","https://m.me/"+CFG.messenger); setLink("[data-reviews]",CFG.reviews);
+if(/YOUR_/.test(CFG.messenger)) document.getElementById("msgr").style.display="none";
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+var f = document.getElementById("f"), status = document.getElementById("status");
+var rules = {
+  name:     function(v){ return v.trim().length > 1 || "Enter your name."; },
+  phone:    function(v){ return /^[+]?[0-9\s-]{10,14}$/.test(v.trim()) || "Enter a valid 10-digit phone number."; },
+  email:    function(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.trim()) || "Enter a valid email address."; },
+  service:  function(v){ return v !== "" || "Choose a service."; },
+  location: function(v){ return v.trim().length > 2 || "Enter your area in Jhansi."; }
+};
+function validate(){
+  var ok = true;
+  Object.keys(rules).forEach(function(k){
+    var r = rules[k](f.elements[k].value);
+    f.querySelector('[data-for="'+k+'"]').textContent = r === true ? "" : r;
+    if (r !== true) ok = false;
+  });
+  return ok;
+}
+function message(){
+  var v = function(k){ return f.elements[k].value.trim(); };
+  return "New booking request – The Bloomelle House\n" +
+    "Name: " + v("name") + "\nPhone: " + v("phone") + "\nEmail: " + v("email") +
+    "\nService: " + v("service") + "\nLocation: " + v("location");
+}
+f.addEventListener("submit", function(e){
+  e.preventDefault();
+  if (!validate()) { status.textContent = "Please fix the highlighted fields."; return; }
+  status.textContent = "Opening WhatsApp with your details. Press send to confirm your request.";
+  window.open("https://wa.me/" + CFG.phone + "?text=" + encodeURIComponent(message()), "_blank", "noopener");
+});
+document.getElementById("msgr").addEventListener("click", function(){
+  if (!validate()) { status.textContent = "Please fix the highlighted fields."; return; }
+  var m = message();
+  try { navigator.clipboard.writeText(m); } catch(e){}
+  status.textContent = "Details copied. Paste them into the Messenger chat and send.";
+  window.open("https://m.me/" + CFG.messenger, "_blank", "noopener");
+});
+
+(function(){var v=document.querySelector(".herovideo");if(v&&window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches){v.removeAttribute("autoplay");v.pause();}})();
+</script>
+</body>
+</html>
