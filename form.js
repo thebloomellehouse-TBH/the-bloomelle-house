@@ -1,4 +1,4 @@
-const WA='918318042886',FORMSPREE='';
+const WA='918318042885',FORMSPREE='';
 document.querySelectorAll('form.lead').forEach(f=>f.addEventListener('submit',async e=>{e.preventDefault();
 const d=Object.fromEntries(new FormData(f)),m=f.querySelector('.msg');
 const t=`Hello Bloomelle House, I want to book *${d.service}*.\nName: ${d.name}\nMobile: ${d.mobile}\nArea in Jhansi: ${d.area}\nPreferred date: ${d.date||'Not decided'}\nPage: ${location.pathname}`;
