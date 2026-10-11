@@ -222,6 +222,46 @@ a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
 .rwrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(20px,5vw,56px);align-items:center}
 .rimg{display:block;width:100%;height:auto;aspect-ratio:1.35;object-fit:cover;object-position:40% 35%;border-radius:24px;border:1px solid var(--line);box-shadow:0 22px 40px -24px rgba(58,10,27,.6)}
 @media(max-width:760px){.rwrap{grid-template-columns:1fr}.rimg{order:-1;aspect-ratio:4/3}}
+/* ===== booking: community message left, form right ===== */
+#book{background:radial-gradient(800px 420px at 8% 0%,#5E1630 0%,transparent 60%),var(--burg)}
+.bgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,6vw,72px);align-items:center}
+@media(max-width:860px){.bgrid{grid-template-columns:1fr}}
+.bleft h2{font-size:clamp(2rem,5vw,3.3rem);color:#F8DCD2;margin-bottom:1rem}
+.bleft p{color:#E5CFC8;max-width:46ch}
+.feat{list-style:none;margin:0 0 1.6rem;padding:0;display:grid;gap:12px}
+.feat li{display:flex;align-items:center;gap:14px;font-weight:500}
+.feat i{font-style:normal;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:1.25rem;font-weight:700;color:var(--rose);background:rgba(230,179,165,.12);border:1.5px solid rgba(230,179,165,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.25);flex-shrink:0}
+.bleft .tagline{font:italic 600 clamp(1.5rem,3.4vw,2.1rem)/1.2 var(--serif);color:var(--rose);margin:0 0 1.4rem}
+.rate{display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(230,179,165,.55);background:rgba(230,179,165,.1);border-radius:999px;padding:9px 20px;font-weight:500}
+.rate .st{color:var(--rose);letter-spacing:2px}
+.bcard{background:rgba(255,255,255,.05);border:1px solid rgba(230,179,165,.35);border-radius:22px;padding:clamp(20px,4vw,34px);box-shadow:0 30px 60px -34px rgba(0,0,0,.7)}
+.bcard h3{font-size:clamp(1.7rem,3.4vw,2.2rem);color:#F8DCD2;margin-bottom:6px}
+.bcard .sub{margin:0 0 1.2rem;font-size:.98rem}
+.bcard form{grid-template-columns:1fr;max-width:none;gap:14px}
+
+/* ===== scrolling Google reviews strip (shows once REVIEWS has entries) ===== */
+[hidden]{display:none!important}
+#reviews{padding-bottom:48px}
+.live{padding:0 0 88px}
+.lhead{text-align:center;margin-bottom:26px}
+.lhead .g{display:inline-flex;align-items:center;gap:8px;font:600 1.5rem var(--serif);color:var(--burg)}
+.lhead .g i{font:700 .95rem Georgia,serif;font-style:normal;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1.5px solid var(--line);color:var(--accent)}
+.lhead .score{margin:6px 0 2px;font-weight:500}
+.lhead .score .s{color:#E2A93B;letter-spacing:2px;margin-left:6px}
+.lhead a{color:var(--accent)}
+.rview{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.rtrack{display:flex;gap:20px;width:max-content;padding:6px 10px 14px;animation:run 40s linear infinite}
+.rview:hover .rtrack,.rtrack:focus-within{animation-play-state:paused}
+@keyframes run{to{transform:translateX(calc(-50% - 10px))}}
+.rc{width:min(320px,78vw);flex:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 14px 28px -22px rgba(58,10,27,.5);display:flex;flex-direction:column;gap:10px}
+.who{display:flex;align-items:center;gap:12px}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:500;font-size:1.1rem;background:var(--accent)}
+.av.b2{background:#5E1630}.av.b3{background:#B9776A}
+.who b{display:block;line-height:1.2}.who .s{color:#E2A93B;font-size:.85rem;letter-spacing:2px}
+.rc p{margin:0;color:var(--muted);font-size:.97rem;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;min-height:6.2em}
+.rc .src{margin-top:auto;border-top:1px solid var(--line);padding-top:10px;font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+.rc .src i{font:700 .8rem Georgia,serif;font-style:normal;color:var(--accent)}
+@media(prefers-reduced-motion:reduce){.rtrack{animation:none;width:auto;overflow-x:auto;padding-bottom:18px}.rview{-webkit-mask-image:none;mask-image:none}.rtrack .dup{display:none}}
 </style>
 </head>
 <body>
@@ -310,6 +350,15 @@ a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
     </div>
   </section>
 
+  <section class="live" id="gr" aria-label="Google reviews" hidden>
+    <div class="wrap lhead">
+      <div class="g"><i>G</i>Google reviews</div>
+      <div class="score"><b id="rating">4.8</b><span class="s" aria-hidden="true">★★★★★</span></div>
+      <a data-reviews target="_blank" rel="noopener" href="#">More reviews</a>
+    </div>
+    <div class="rview"><div class="rtrack" id="rt" tabindex="0" aria-label="Client reviews, scrolling"></div></div>
+  </section>
+
   <section id="blog">
     <div class="wrap">
       <h2>Beauty guides for brides</h2>
@@ -346,26 +395,36 @@ a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
   </section>
 
   <section id="book">
-    <div class="wrap">
-      <h2>Request an appointment</h2>
-      <p class="sub">Share your details and we will confirm your slot on WhatsApp.</p>
-      <form id="f" novalidate>
-        <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required><div class="err" data-for="name"></div></div>
-        <div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><div class="err" data-for="phone"></div></div>
-        <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><div class="err" data-for="email"></div></div>
-        <div><label for="service">Service</label>
-          <select id="service" name="service" required>
-            <option value="">Choose a service</option>
-            <option>Bridal Makeup</option><option>Party Makeup</option><option>Hair Styling</option>
-            <option>Nail Extensions</option><option>Pre-Bridal</option><option>Other / not sure</option>
-          </select><div class="err" data-for="service"></div></div>
-        <div class="full"><label for="location">Location (area in Jhansi)</label><input id="location" name="location" autocomplete="street-address" required><div class="err" data-for="location"></div></div>
-        <div class="full row">
-          <button class="btn" type="submit">Get Quote</button>
-          <button class="btn ghost" type="button" id="msgr" style="color:var(--on-burg)">Send on Messenger</button>
-        </div>
-        <p class="full note" id="status" role="status"></p>
-      </form>
+    <div class="wrap bgrid">
+      <div class="bleft">
+        <h2>Join The Bloomelle House Community</h2>
+        <p>Experience premium beauty and self-care services at your doorstep. Whether you're getting ready for a special occasion or enjoying a little self-care, The Bloomelle House brings beauty, comfort, and care to you.</p>
+        <ul class="feat">
+          <li><i aria-hidden="true">✓</i>Premium Beauty Services at Home</li>
+          <li><i aria-hidden="true">✓</i>Professional Beauty &amp; Self-Care</li>
+          <li><i aria-hidden="true">✓</i>Personalized Care &amp; Comfort</li>
+        </ul>
+        <p class="tagline">Your Beauty, Your Comfort, Your Way.</p>
+        <div class="rate"><span><b>4.8</b> <span class="st" aria-hidden="true">★</span></span><span>Customer Rating</span></div>
+      </div>
+      <div class="bcard">
+        <h3>Request an appointment</h3>
+        <p class="sub">Share your details and we will confirm your slot on WhatsApp.</p>
+        <form id="f" novalidate>
+          <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required><div class="err" data-for="name"></div></div>
+          <div><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><div class="err" data-for="phone"></div></div>
+          <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><div class="err" data-for="email"></div></div>
+          <div><label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option>Bridal Makeup</option><option>Party Makeup</option><option>Hair Styling</option>
+              <option>Nail Extensions</option><option>Pre-Bridal</option><option>Other / not sure</option>
+            </select><div class="err" data-for="service"></div></div>
+          <div><label for="location">Location (area in Jhansi)</label><input id="location" name="location" autocomplete="street-address" required><div class="err" data-for="location"></div></div>
+          <div class="row"><button class="btn" type="submit" style="width:100%">Book an appointment</button></div>
+          <p class="note" id="status" role="status"></p>
+        </form>
+      </div>
     </div>
   </section>
 <section class="doc" id="terms"><div class="wrap"><h2>Terms &amp; Conditions</h2><ul class="ticks"><li>Bookings are confirmed only after we reply on WhatsApp or by phone.</li><li>Please share an accurate address and a working phone number.</li><li>Prices and the final service list are confirmed at the time of booking.</li><li>Tell us about any skin allergies before your service.</li><li>Please inform us in advance to reschedule or cancel a booking.</li></ul><p><a class="btn ghost" style="color:var(--ink)" href="#top">Back to home</a></p></div></section><section class="doc" id="privacy"><div class="wrap"><h2>Privacy Policy</h2><p>When you send a booking request we receive your name, phone number, email, chosen service and location. We use them only to confirm and deliver your appointment and to contact you about it.</p><p>This website does not store the details you enter in the booking form. The form opens WhatsApp or Messenger with your message, which you then send to us. We do not sell your information.</p><p>We use Google Analytics and Google Ads to understand how visitors use this website and to measure the performance of our advertising, such as which pages are viewed and from which device or general location. They use cookies and similar technologies to collect this information in aggregate form. It does not collect the details you type into the booking form. You can block these cookies in your browser settings or opt out using the Google Analytics Opt-out Browser Add-on.</p><p>To ask us to delete your details, email thebloomellehouse@gmail.com.</p><p><a class="btn ghost" style="color:var(--ink)" href="#top">Back to home</a></p></div></section>
@@ -436,10 +495,9 @@ each("[data-call]",function(a){ a.href = "tel:+" + CFG.phone; });
 each("[data-mail]",function(a){ a.href = "mailto:" + CFG.email; });
 setLink("[data-ig]",CFG.instagram); setLink("[data-li]",CFG.linkedin); setLink("[data-fb]",CFG.facebook); setLink("[data-yt]",CFG.youtube);
 setLink("[data-ms]","https://m.me/"+CFG.messenger); setLink("[data-reviews]",CFG.reviews);
-if(/YOUR_/.test(CFG.messenger)) document.getElementById("msgr").style.display="none";
 document.getElementById("yr").textContent = new Date().getFullYear();
 
-var f = document.getElementById("f"), status = document.getElementById("status");
+var f = document.getElementById("f"), statusEl = document.getElementById("status");
 var rules = {
   name:     function(v){ return v.trim().length > 1 || "Enter your name."; },
   phone:    function(v){ return /^[+]?[0-9\s-]{10,14}$/.test(v.trim()) || "Enter a valid 10-digit phone number."; },
@@ -474,19 +532,34 @@ function trackBooking(){
 }
 f.addEventListener("submit", function(e){
   e.preventDefault();
-  if (!validate()) { status.textContent = "Please fix the highlighted fields."; return; }
+  if (!validate()) { statusEl.textContent = "Please fix the highlighted fields."; return; }
   trackBooking();
-  status.textContent = "Opening WhatsApp with your details. Press send to confirm your request.";
+  statusEl.textContent = "Opening WhatsApp with your details. Press send to confirm your request.";
   window.open("https://wa.me/" + CFG.phone + "?text=" + encodeURIComponent(message()), "_blank", "noopener");
 });
-document.getElementById("msgr").addEventListener("click", function(){
-  if (!validate()) { status.textContent = "Please fix the highlighted fields."; return; }
-  trackBooking();
-  var m = message();
-  try { navigator.clipboard.writeText(m); } catch(e){}
-  status.textContent = "Details copied. Paste them into the Messenger chat and send.";
-  window.open("https://m.me/" + CFG.messenger, "_blank", "noopener");
-});
+
+/* ====== GOOGLE REVIEWS STRIP ======
+   Add REAL reviews copied from your Google Business Profile, one per line:
+   {n:"Client name", t:"Review text"},
+   The strip stays hidden until at least one review is added.
+   Set RATING to match your real Google rating. */
+var RATING = "4.8";
+var REVIEWS = [
+  /* {n:"Client name", t:"Review text"}, */
+];
+(function(){
+  if(!REVIEWS.length) return;
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function card(r,i,dup){return '<article class="rc'+(dup?' dup':'')+'"'+(dup?' aria-hidden="true"':'')+'><div class="who"><span class="av b'+(i%3+1)+'">'+esc(r.n.charAt(0))+'</span><div><b>'+esc(r.n)+'</b><span class="s" aria-label="5 stars">\u2605\u2605\u2605\u2605\u2605</span></div></div><p>\u201C'+esc(r.t)+'\u201D</p><div class="src"><i>G</i>Google review</div></article>'}
+  var rep=Math.max(1,Math.ceil(5/REVIEWS.length)), half='';
+  for(var c=0;c<rep;c++){ REVIEWS.forEach(function(r,i){ half+=card(r,i,c>0); }); }
+  var dupHalf=''; for(var d=0;d<rep;d++){ REVIEWS.forEach(function(r,i){ dupHalf+=card(r,i,true); }); }
+  var rt=document.getElementById("rt");
+  rt.innerHTML=half+dupHalf;
+  rt.style.animationDuration=(REVIEWS.length*rep*8)+"s";
+  document.getElementById("rating").textContent=RATING;
+  document.getElementById("gr").hidden=false;
+})();
 
 (function(){var v=document.querySelector(".herovideo");if(v&&window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches){v.removeAttribute("autoplay");v.pause();}})();
 </script>
