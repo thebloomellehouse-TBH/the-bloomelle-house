@@ -266,6 +266,23 @@ a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
 .rc .src{margin-top:auto;border-top:1px solid var(--line);padding-top:10px;font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:center}
 .rc .src i{font:700 .8rem Georgia,serif;font-style:normal;color:var(--accent)}
 @media(prefers-reduced-motion:reduce){.rtrack{animation:none;width:auto;overflow-x:auto;padding-bottom:18px}.rview{-webkit-mask-image:none;mask-image:none}.rtrack .dup{display:none}}
+
+/* ===== FINAL UPDATES: lighter hero overlay, one-line headline, highlighted Book Now ===== */
+.heroshade{background:linear-gradient(90deg,rgba(36,5,16,.34) 0%,rgba(36,5,16,.12) 50%,rgba(36,5,16,0) 100%)}
+.herotop .herotext{max-width:none}
+.hero h1{white-space:nowrap;font-size:clamp(1.35rem,6.2vw,4.6rem);filter:drop-shadow(0 2px 12px rgba(0,0,0,.45))}
+.hero .row{margin-top:1.4rem}
+.navbook{background:var(--rose);color:var(--burg2);font-weight:500;font-size:.95rem;text-decoration:none;white-space:nowrap;padding:9px 22px;border-radius:999px;border:1.5px solid var(--rose);box-shadow:0 6px 20px -6px rgba(230,179,165,.8);transition:filter .2s,transform .2s}
+.navbook:hover{filter:brightness(1.08);transform:translateY(-1px)}
+@media(max-width:760px){
+  .heroshade{background:linear-gradient(180deg,rgba(36,5,16,.30) 0%,rgba(36,5,16,.10) 45%,rgba(36,5,16,.28) 100%)}
+}
+@media(max-width:700px){
+  .nav{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px}
+  .logo{order:1;font-size:1.15rem}
+  .navbook{order:2;padding:8px 15px;font-size:.9rem}
+  nav{order:3;width:100%}
+}
 </style>
 </head>
 <body>
@@ -275,8 +292,9 @@ a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
     <a class="logo" href="#top"><img src="assets/logo-emblem.png" alt="The Bloomelle House logo" width="44" height="44"><span>The Bloomelle House</span></a>
     <nav aria-label="Main">
       <a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#about">About</a>
-      <a href="#area">Areas</a><a href="#reviews">Reviews</a><a href="blog.html">Blog</a><a href="#book">Book</a>
+      <a href="#area">Areas</a><a href="#reviews">Reviews</a><a href="blog.html">Blog</a>
     </nav>
+    <a class="navbook" href="#book">Book Now</a>
   </div>
 </header>
 
@@ -285,10 +303,8 @@ a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
     <div class="wrap herogrid herotop">
       <div class="herotext">
       <h1>Salon luxury, at your doorstep.</h1>
-      <p>Bridal makeup, party looks, hair styling, nail extensions and pre-bridal care by professionals who come to you anywhere in Jhansi.</p>
       <div class="row">
-        <a class="btn" data-wa target="_blank" rel="noopener" href="#">Book an appointment</a>
-        <a class="btn ghost heroexplore" href="#services">Explore services</a>
+        <a class="btn" data-wa target="_blank" rel="noopener" href="#">Book now</a>
       </div>
       </div>
       </div>
@@ -425,7 +441,7 @@ a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
               <option>Nail Extensions</option><option>Pre-Bridal</option><option>Other / not sure</option>
             </select><div class="err" data-for="service"></div></div>
           <div><label for="location">Location (area in Jhansi)</label><input id="location" name="location" autocomplete="street-address" required><div class="err" data-for="location"></div></div>
-          <div class="row"><button class="btn" type="submit" style="width:100%">Book an appointment</button></div>
+          <div class="row"><button class="btn" type="submit" style="width:100%">Book now</button></div>
           <p class="note" id="status" role="status"></p>
         </form>
       </div>
