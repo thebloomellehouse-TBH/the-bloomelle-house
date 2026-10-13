@@ -18,6 +18,13 @@
   .hero-pic{width:100%;opacity:.5;object-position:50% 20%;
     -webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 100%);mask-image:linear-gradient(180deg,#000 35%,transparent 100%)}
 }
+/* mobile header: logo left, Call now right, menu on its own row */
+@media(max-width:700px){
+  header .w{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:10px 12px!important}
+  header .w > a:first-child{order:1}
+  header .w > a.btn{order:2;margin:0!important;padding:9px 22px!important;font-size:.92rem!important}
+  header nav{order:3;width:100%!important;display:flex!important;justify-content:center!important;gap:26px!important}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"The Bloomelle House","url":"https://thebloomellehouse.com","telephone":"+918318042885","email":"thebloomellehouse@gmail.com","areaServed":"Jhansi","openingHours":"Mo-Sa 09:00-18:00","description":"Premium salon and beauty services at your doorstep in Jhansi"}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQ3LHXX6JG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FQ3LHXX6JG');</script></head><body>
