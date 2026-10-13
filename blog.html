@@ -18,6 +18,13 @@
   .hero-pic{width:100%;opacity:.5;object-position:50% 20%;
     -webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 100%);mask-image:linear-gradient(180deg,#000 35%,transparent 100%)}
 }
+/* mobile header: logo left, Call now right, menu on its own row */
+@media(max-width:700px){
+  header .w{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:10px 12px!important}
+  header .w > a:first-child{order:1}
+  header .w > a.btn{order:2;margin:0!important;padding:9px 22px!important;font-size:.92rem!important}
+  header nav{order:3;width:100%!important;display:flex!important;justify-content:center!important;gap:26px!important}
+}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQ3LHXX6JG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FQ3LHXX6JG');</script></head><body>
 <header><div class="w"><a href="index.html"><img src="assets/logo.png" alt="The Bloomelle House logo"></a><nav><a href="index.html">Home</a><a href="sitemap.html">All services</a><a href="blog.html">Blog</a></nav><a class="btn" href="tel:+918318042885" style="margin:0">Call now</a></div></header>
