@@ -268,15 +268,24 @@ a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
 @media(prefers-reduced-motion:reduce){.rtrack{animation:none;width:auto;overflow-x:auto;padding-bottom:18px}.rview{-webkit-mask-image:none;mask-image:none}.rtrack .dup{display:none}}
 
 /* ===== FINAL UPDATES: lighter hero overlay, one-line headline, highlighted Book Now ===== */
-.heroshade{background:linear-gradient(90deg,rgba(36,5,16,.34) 0%,rgba(36,5,16,.12) 50%,rgba(36,5,16,0) 100%)}
-.herotop .herotext{max-width:none}
-.hero h1{white-space:nowrap;font-size:clamp(1.35rem,6.2vw,4.6rem);filter:drop-shadow(0 2px 12px rgba(0,0,0,.45))}
-.hero .row{margin-top:1.4rem}
-.navbook{background:var(--rose);color:var(--burg2);font-weight:500;font-size:.95rem;text-decoration:none;white-space:nowrap;padding:9px 22px;border-radius:999px;border:1.5px solid var(--rose);box-shadow:0 6px 20px -6px rgba(230,179,165,.8);transition:filter .2s,transform .2s}
-.navbook:hover{filter:brightness(1.08);transform:translateY(-1px)}
-@media(max-width:760px){
-  .heroshade{background:linear-gradient(180deg,rgba(36,5,16,.30) 0%,rgba(36,5,16,.10) 45%,rgba(36,5,16,.28) 100%)}
-}
+.heroshade{background:linear-gradient(180deg,rgba(0,0,0,.14) 0%,rgba(0,0,0,.10) 50%,rgba(0,0,0,.22) 100%)}
+.herotop .herotext{max-width:none;text-align:center}
+.hero h1{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#fff;font-weight:500;
+  white-space:nowrap;font-size:clamp(1.2rem,5.2vw,3rem);letter-spacing:.05em;line-height:1.2;margin-bottom:0;
+  text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.hero .row{margin-top:1.3rem;justify-content:center}
+/* ===== glass buttons: one theme for every button ===== */
+/* light backgrounds = burgundy glass (default); dark / video backgrounds = white glass */
+header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(255,255,255,.08);--g-bgh:rgba(255,255,255,.22);--g-sh:rgba(0,0,0,.35)}
+.btn,.btn.ghost,.navbook{display:inline-block;padding:11px 28px;font:500 .95rem var(--sans);letter-spacing:.02em;text-decoration:none;cursor:pointer;
+  color:var(--g-fg,#3A0A1B);background:var(--g-bg,rgba(58,10,27,.06));border:1.2px solid var(--g-bd,rgba(58,10,27,.6));border-radius:999px;box-shadow:none;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);text-shadow:0 1px 6px var(--g-sh,transparent);
+  transition:background .25s,border-color .25s,transform .2s}
+.btn:hover,.btn.ghost:hover,.navbook:hover{background:var(--g-bgh,rgba(58,10,27,.14));filter:none;transform:translateY(-1px)}
+.hero .row .btn{padding:10px 30px}
+/* header Book Now: same glass, slightly brighter so it stands out */
+.navbook{--g-bg:rgba(255,255,255,.16);background:rgba(255,255,255,.16);border-color:#fff;box-shadow:0 0 0 3px rgba(230,179,165,.28),0 6px 18px -8px rgba(0,0,0,.5)}
+.navbook{white-space:nowrap}
 @media(max-width:700px){
   .nav{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px}
   .logo{order:1;font-size:1.15rem}
