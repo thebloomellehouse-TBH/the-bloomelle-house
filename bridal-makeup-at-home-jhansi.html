@@ -6,23 +6,30 @@
 <link rel="stylesheet" href="seo.css">
 <link rel="stylesheet" href="assets/glass.css">
 <style>
-/* home-service artwork on the right of the banner */
+/* bridal artwork on the right of the banner */
 .hero{position:relative;overflow:hidden;isolation:isolate;min-height:clamp(340px,38vw,480px)}
 .hero::before,.hero-art::before{display:none!important}
 .hero .w{position:relative;z-index:2}
-.hero-pic{position:absolute;z-index:1;top:0;right:0;width:64%;height:100%;object-fit:cover;object-position:62% 35%;
+.hero-pic{position:absolute;z-index:1;top:0;right:0;width:66%;height:100%;object-fit:cover;object-position:50% 12%;
   mix-blend-mode:lighten;pointer-events:none;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,#000 38%)}
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 28%);mask-image:linear-gradient(90deg,transparent 0%,#000 28%)}
 @media(max-width:700px){
   .hero{min-height:380px}
-  .hero-pic{width:100%;opacity:.38;object-position:70% 30%;
+  .hero-pic{width:100%;opacity:.42;object-position:35% 15%;
     -webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 100%);mask-image:linear-gradient(180deg,#000 35%,transparent 100%)}
+}
+/* mobile header: logo left, Call now right, menu on its own row */
+@media(max-width:700px){
+  header .w{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:10px 12px!important}
+  header .w > a:first-child{order:1}
+  header .w > a.btn{order:2;margin:0!important;padding:9px 22px!important;font-size:.92rem!important}
+  header nav{order:3;width:100%!important;display:flex!important;justify-content:center!important;gap:26px!important}
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"The Bloomelle House","url":"https://thebloomellehouse.com","telephone":"+918318042885","email":"thebloomellehouse@gmail.com","areaServed":"Jhansi","openingHours":"Mo-Sa 09:00-18:00","description":"Premium salon and beauty services at your doorstep in Jhansi"}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQ3LHXX6JG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FQ3LHXX6JG');</script></head><body>
 <header><div class="w"><a href="index.html"><img src="assets/logo.png" alt="The Bloomelle House logo"></a><nav><a href="index.html">Home</a><a href="sitemap.html">All services</a><a href="blog.html">Blog</a></nav><a class="btn" href="tel:+918318042885" style="margin:0">Call now</a></div></header>
-<section class="hero"><img class="hero-pic" src="assets/service-hero.jpg" alt="" width="1920" height="1072"><div class="w"><h1>Bridal makeup at home in Jhansi</h1><p>A relaxed wedding morning starts at home. Our bridal artist arrives at your doorstep in Jhansi, so you never travel in full makeup.</p><a class="btn" href="#book">Request a booking</a></div></section>
+<section class="hero"><img class="hero-pic" src="assets/bridal-hero.jpg" alt="" width="1920" height="1072"><div class="w"><h1>Bridal makeup at home in Jhansi</h1><p>A relaxed wedding morning starts at home. Our bridal artist arrives at your doorstep in Jhansi, so you never travel in full makeup.</p><a class="btn" href="#book">Request a booking</a></div></section>
 <div class="w"><div class="grid"><main><h2>What you get</h2><ul class="t"><li>Skin prep and base matched to your skin tone</li><li>Bridal makeup in a look you choose: HD, soft glam or traditional</li><li>Hairstyling with veil or dupatta setting</li><li>Saree or lehenga draping help</li><li>Trial session before the wedding day</li></ul>
 <h2>Areas we serve</h2><p class="areas"><span>Civil Lines</span><span>Sipri Bazaar</span><span>Elite Chauraha</span><span>Gwalior Road</span><span>Medical College Road</span><span>Nandanpura</span><span>Cantt</span><span>and nearby areas of Jhansi</span></p>
 <h2>Questions</h2><details><summary>Do you travel to my venue or home?</summary><p>We come to your home or to a venue within Jhansi. Share the address when you book.</p></details><details><summary>How early should I book?</summary><p>As soon as your date is fixed. Wedding season dates fill first.</p></details><details><summary>Can I have a trial?</summary><p>Yes, ask for a trial when you send the request.</p></details>
