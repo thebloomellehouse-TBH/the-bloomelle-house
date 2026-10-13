@@ -1,0 +1,42 @@
+/* ============================================================
+   The Bloomelle House – shared glass buttons + hero art
+   Add to EVERY page (blog, blog posts, service pages, sitemap),
+   just before </head>, AFTER the page's own <style>:
+   <link rel="stylesheet" href="assets/glass.css">
+============================================================ */
+
+/* dark sections = white glass */
+header,footer,[class*="hero"],[class*="cta"],[class*="dark"],[class*="burg"],#book{
+  --g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(255,255,255,.10);--g-bgh:rgba(255,255,255,.24);--g-sh:rgba(0,0,0,.35)}
+
+/* every button: same glass theme */
+.btn,.btn.ghost,.button,.call,.navbook,[class*="btn"],[class*="button"],
+header a[href^="tel:"],a.cta,button[type="submit"]{
+  display:inline-block;padding:11px 28px!important;font-size:.95rem!important;font-weight:500!important;letter-spacing:.02em;
+  line-height:1.4;text-decoration:none!important;cursor:pointer;white-space:nowrap;
+  color:var(--g-fg,#3A0A1B)!important;
+  background:var(--g-bg,rgba(58,10,27,.06))!important;
+  border:1.2px solid var(--g-bd,rgba(58,10,27,.6))!important;
+  border-radius:999px!important;box-shadow:none!important;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  text-shadow:0 1px 6px var(--g-sh,transparent);
+  transition:background .25s,border-color .25s,transform .2s}
+.btn:hover,.btn.ghost:hover,.button:hover,.call:hover,.navbook:hover,[class*="btn"]:hover,[class*="button"]:hover,
+header a[href^="tel:"]:hover,a.cta:hover,button[type="submit"]:hover{
+  background:var(--g-bgh,rgba(58,10,27,.14))!important;transform:translateY(-1px);filter:none!important}
+/* header main button: same glass, slightly brighter */
+.navbook,header a[href^="tel:"]{background:rgba(255,255,255,.16)!important;border-color:#fff!important;
+  box-shadow:0 0 0 3px rgba(230,179,165,.28),0 6px 18px -8px rgba(0,0,0,.5)!important}
+
+/* ---------- hero art (stylist illustration) ----------
+   Add class="hero-art" to the page's top banner section (e.g. the Blog header). */
+.hero-art{position:relative;overflow:hidden;isolation:isolate;min-height:clamp(340px,40vw,500px)}
+.hero-art::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;right:0;width:74%;
+  background:url(blog-hero.jpg) center 22%/cover no-repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,#000 38%)}
+.hero-art > *{position:relative;z-index:1}
+@media(max-width:700px){
+  .hero-art{min-height:380px}
+  .hero-art::before{width:100%;opacity:.5;
+    -webkit-mask-image:linear-gradient(180deg,#000 40%,transparent 100%);mask-image:linear-gradient(180deg,#000 40%,transparent 100%)}
+}
