@@ -292,6 +292,16 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
   .navbook{order:2;padding:8px 15px;font-size:.9rem}
   nav{order:3;width:100%}
 }
+
+/* ===== stylist artwork behind the booking section (file: assets/blog-hero.jpg) ===== */
+#book{position:relative;overflow:hidden;isolation:isolate}
+#book::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:0;width:62%;
+  background:url(assets/blog-hero.jpg) 50% 25%/cover no-repeat;opacity:.26;
+  -webkit-mask-image:linear-gradient(270deg,transparent 0%,#000 55%);mask-image:linear-gradient(270deg,transparent 0%,#000 55%)}
+@media(max-width:860px){
+  #book::before{width:100%;opacity:.2;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 70%);mask-image:linear-gradient(180deg,#000 0%,transparent 70%)}
+}
 </style>
 </head>
 <body>
