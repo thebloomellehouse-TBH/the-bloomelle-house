@@ -3,10 +3,50 @@
 <meta property="og:title" content="Pre-Bridal Packages in Jhansi at Home | The Bloomelle House"><meta property="og:description" content="Pre-bridal skin, hair and body care at home in Jhansi, planned around your wedding date."><meta property="og:type" content="website">
 <link rel="icon" href="assets/logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="seo.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"The Bloomelle House","url":"https://thebloomellehouse.com","telephone":"+918318042885","email":"thebloomellehouse@gmail.com","areaServed":"Jhansi","openingHours":"Mo-Sa 09:00-18:00","description":"Premium salon and beauty services at your doorstep in Jhansi"}</script>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="seo.css">
+<link rel="stylesheet" href="assets/glass.css">
+<style>
+/* pre-bridal artwork on the right of the banner */
+.hero{position:relative;overflow:hidden;isolation:isolate;min-height:clamp(340px,38vw,480px)}
+.hero::before,.hero-art::before{display:none!important}
+.hero .w{position:relative;z-index:2}
+.hero-pic{position:absolute;z-index:1;top:0;right:0;width:66%;height:100%;object-fit:cover;object-position:50% 30%;
+  mix-blend-mode:lighten;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%);mask-image:linear-gradient(90deg,transparent 0%,#000 30%)}
+@media(max-width:700px){
+  .hero{min-height:380px}
+  .hero-pic{width:100%;opacity:.45;object-position:50% 30%;
+    -webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 100%);mask-image:linear-gradient(180deg,#000 35%,transparent 100%)}
+}
+
+/* ===== Header theme: deep maroon + rose gold (matches home page) ===== */
+header{background:#1e0b13!important;border-bottom:1px solid rgba(217,162,143,.25)!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+header .w{display:flex!important;align-items:center!important;gap:22px!important}
+header .brand{display:flex!important;align-items:center!important;gap:12px!important;text-decoration:none!important;color:#d9a28f!important}
+header .brand img{width:44px!important;height:44px!important;border-radius:50%!important;object-fit:cover!important}
+header .brand span{font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:700!important;font-size:1.35rem!important;color:#d9a28f!important;white-space:nowrap!important}
+header nav{display:flex!important;gap:26px!important;margin-left:auto!important}
+header nav a{font-family:'Jost',system-ui,sans-serif!important;font-weight:500!important;color:#f6e7e2!important;text-decoration:none!important;white-space:nowrap!important}
+header nav a:hover{color:#d9a28f!important}
+header .btn{background:#3a1a25!important;border:1.5px solid #c99aa0!important;color:#fff!important;border-radius:999px!important;padding:11px 26px!important;margin:0!important;font-family:'Jost',system-ui,sans-serif!important;font-weight:500!important;white-space:nowrap!important;box-shadow:none!important}
+header .btn:hover{background:#4d2332!important}
+
+/* mobile header: logo + name left, Book Now right corner, menu on its own row */
+@media(max-width:700px){
+  header .w{flex-wrap:wrap!important;justify-content:space-between!important;gap:10px 12px!important;padding-left:14px!important;padding-right:14px!important}
+  header .brand{order:1!important;min-width:0!important}
+  header .brand span{font-size:1.1rem!important}
+  header .btn,header a.btn{display:inline-flex!important;align-items:center!important;visibility:visible!important;opacity:1!important;position:static!important;width:auto!important;height:auto!important;flex:0 0 auto!important;order:2!important;margin:0 0 0 auto!important;padding:9px 20px!important;font-size:.92rem!important}
+  header .brand{flex:1 1 auto!important}
+  header .brand span{font-size:1rem!important}
+  header nav{order:3!important;width:100%!important;justify-content:center!important;gap:26px!important;margin:0!important;border-top:1px solid rgba(217,162,143,.2);padding-top:8px}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"The Bloomelle House","url":"https://thebloomellehouse.com","telephone":"+918318042885","email":"thebloomellehouse@gmail.com","areaServed":"Jhansi","openingHours":"Mo-Sa 09:00-18:00","description":"Premium salon and beauty services at your doorstep in Jhansi"}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQ3LHXX6JG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FQ3LHXX6JG');</script></head><body>
-<header><div class="w"><a href="index.html"><img src="assets/logo.png" alt="The Bloomelle House logo"></a><nav><a href="index.html">Home</a><a href="sitemap.html">All services</a><a href="blog.html">Blog</a></nav><a class="btn" href="tel:+918318042885" style="margin:0">Call now</a></div></header>
-<section class="hero"><div class="w"><h1>Pre-bridal services in Jhansi</h1><p>Look and feel your best on the big day. We plan pre-bridal care around your wedding date and your skin and hair needs.</p><a class="btn" href="#book">Request a booking</a></div></section>
+<header><div class="w"><a class="brand" href="index.html"><img src="assets/logo-emblem.png" alt="The Bloomelle House logo" width="44" height="44"><span>The Bloomelle House</span></a><nav><a href="index.html">Home</a><a href="sitemap.html">All services</a><a href="blog.html">Blog</a></nav><a class="btn" href="https://wa.me/918318042885?text=Hi%2C%20I%20want%20to%20book%20a%20service">Book Now</a></div></header>
+<section class="hero"><img class="hero-pic" src="assets/prebridal-hero.jpg" alt="Bride in a robe at a vanity mirror while a stylist sets her veil" width="1920" height="1072"><div class="w"><h1>Pre-bridal services in Jhansi</h1><p>Look and feel your best on the big day. We plan pre-bridal care around your wedding date and your skin and hair needs.</p><a class="btn" href="#book">Request a booking</a></div></section>
 <div class="w"><div class="grid"><main><h2>What you get</h2><ul class="t"><li>Skin care sessions planned before the wedding</li><li>Hair care and grooming</li><li>Body care and finishing services</li><li>A schedule that fits your wedding date</li></ul>
 <h2>Areas we serve</h2><p class="areas"><span>Civil Lines</span><span>Sipri Bazaar</span><span>Elite Chauraha</span><span>Gwalior Road</span><span>Medical College Road</span><span>Nandanpura</span><span>Cantt</span><span>and nearby areas of Jhansi</span></p>
 <h2>Questions</h2><details><summary>When should pre-bridal care start?</summary><p>Earlier is better. Message us with your date and we will suggest a schedule.</p></details><details><summary>Is it done at my home?</summary><p>Yes, all sessions are at your doorstep in Jhansi.</p></details>
@@ -17,7 +57,7 @@
 <label for="a">Your area in Jhansi</label><input id="a" name="area" required placeholder="e.g. Civil Lines">
 <label for="d">Event / booking date</label><input id="d" name="date" type="date">
 <button class="btn" type="submit">Send booking request</button><div class="msg" role="status"></div></form></div>
-<h2>Other services</h2><div class="cards"><a href="bridal-makeup-at-home-jhansi.html"><b>Bridal makeup at home in Jhansi</b>Book now</a><a href="party-makeup-at-home-jhansi.html"><b>Party and event makeup at home in Jhansi</b>Book now</a><a href="hair-styling-at-home-jhansi.html"><b>Hair styling at home in Jhansi</b>Book now</a><a href="nail-extensions-jhansi.html"><b>Nail extensions at home in Jhansi</b>Book now</a><a href="beauty-parlour-at-home-jhansi.html"><b>Beauty parlour at home in Jhansi</b>Book now</a></div></div>
+<h2>Other services</h2><div class="cards"><a href="bridal-makeup-at-home-jhansi.html"><b>Bridal makeup at home in Jhansi</b>Book now</a><a href="hair-styling-at-home-jhansi.html"><b>Hair styling at home in Jhansi</b>Book now</a><a href="nail-extensions-jhansi.html"><b>Nail extensions at home in Jhansi</b>Book now</a><a href="party-makeup-at-home-jhansi.html"><b>Party and event makeup at home in Jhansi</b>Book now</a><a href="beauty-parlour-at-home-jhansi.html"><b>Beauty parlour at home in Jhansi</b>Book now</a></div></div>
 <footer><div class="w"><div><b>The Bloomelle House</b><br>Salon &amp; beauty services at your doorstep in Jhansi<br>Mon - Sat, 9 AM - 6 PM</div>
 <div>Call / WhatsApp: <a href="tel:+918318042885">+91 83180 42885</a><br><a href="mailto:thebloomellehouse@gmail.com">thebloomellehouse@gmail.com</a></div>
 <div><a href="sitemap.html">Site Map</a><br><a href="blog.html">Blogs</a><br><a href="https://g.page/r/CUHMA8DSdlUHECE/review">Review us on Google</a></div></div></footer>
