@@ -3,6 +3,7 @@
 <meta property="og:title" content="Beauty Blog | The Bloomelle House Jhansi"><meta property="og:description" content="Bridal, pre-bridal and home beauty guides from The Bloomelle House, Jhansi."><meta property="og:type" content="website">
 <link rel="icon" href="assets/logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="seo.css">
 <link rel="stylesheet" href="assets/glass.css">
 <style>
@@ -18,16 +19,30 @@
   .hero-pic{width:100%;opacity:.5;object-position:50% 20%;
     -webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 100%);mask-image:linear-gradient(180deg,#000 35%,transparent 100%)}
 }
-/* mobile header: logo left, Call now right, menu on its own row */
+
+/* ===== Header theme: deep maroon + rose gold (matches home page) ===== */
+header{background:#1e0b13!important;border-bottom:1px solid rgba(217,162,143,.25)!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+header .w{display:flex!important;align-items:center!important;gap:22px!important}
+header .brand{display:flex!important;align-items:center!important;gap:12px!important;text-decoration:none!important;color:#d9a28f!important}
+header .brand img{width:44px!important;height:44px!important;border-radius:50%!important;object-fit:cover!important}
+header .brand span{font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:700!important;font-size:1.35rem!important;color:#d9a28f!important;white-space:nowrap!important}
+header nav{display:flex!important;gap:26px!important;margin-left:auto!important}
+header nav a{font-family:'Jost',system-ui,sans-serif!important;font-weight:500!important;color:#f6e7e2!important;text-decoration:none!important;white-space:nowrap!important}
+header nav a:hover{color:#d9a28f!important}
+header .btn{background:#3a1a25!important;border:1.5px solid #c99aa0!important;color:#fff!important;border-radius:999px!important;padding:11px 26px!important;margin:0!important;font-family:'Jost',system-ui,sans-serif!important;font-weight:500!important;white-space:nowrap!important;box-shadow:none!important}
+header .btn:hover{background:#4d2332!important}
+
+/* mobile header: logo + name left, Book Now right corner, menu on its own row */
 @media(max-width:700px){
-  header .w{display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:10px 12px!important}
-  header .w > a:first-child{order:1}
-  header .w > a.btn{order:2;margin:0!important;padding:9px 22px!important;font-size:.92rem!important}
-  header nav{order:3;width:100%!important;display:flex!important;justify-content:center!important;gap:26px!important}
+  header .w{flex-wrap:wrap!important;justify-content:space-between!important;gap:10px 12px!important;padding-left:14px!important;padding-right:14px!important}
+  header .brand{order:1!important;min-width:0!important}
+  header .brand span{font-size:1.1rem!important}
+  header .btn{order:2!important;margin:0 0 0 auto!important;padding:9px 22px!important;font-size:.92rem!important}
+  header nav{order:3!important;width:100%!important;justify-content:center!important;gap:26px!important;margin:0!important;border-top:1px solid rgba(217,162,143,.2);padding-top:8px}
 }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQ3LHXX6JG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-FQ3LHXX6JG');</script></head><body>
-<header><div class="w"><a href="index.html"><img src="assets/logo.png" alt="The Bloomelle House logo"></a><nav><a href="index.html">Home</a><a href="sitemap.html">All services</a><a href="blog.html">Blog</a></nav><a class="btn" href="tel:+918318042885" style="margin:0">Call now</a></div></header>
+<header><div class="w"><a class="brand" href="index.html"><img src="assets/logo-emblem.png" alt="The Bloomelle House logo" width="44" height="44"><span>The Bloomelle House</span></a><nav><a href="index.html">Home</a><a href="sitemap.html">All services</a><a href="blog.html">Blog</a></nav><a class="btn" href="https://wa.me/918318042885?text=Hi%2C%20I%20want%20to%20book%20a%20service">Book Now</a></div></header>
 <section class="hero"><img class="hero-pic" src="assets/blog-hero.jpg" alt="" width="1920" height="1072"><div class="w"><h1>Blog</h1><p>Beauty guides for brides and families in Jhansi.</p></div></section><div class="w"><div class="cards"><a href="blog-how-to-choose-bridal-makeup-artist-jhansi.html"><b>How to choose a bridal makeup artist in Jhansi</b>Checklist for brides in Jhansi: what to ask, what to check and when to book your bridal makeup artist.</a><a href="blog-pre-bridal-care-checklist.html"><b>Pre-bridal care checklist: what to do before the wedding</b>A simple timeline for skin, hair and nail care before your wedding, with advice to start early.</a><a href="blog-home-salon-vs-parlour-jhansi.html"><b>Home beauty service vs parlour visit: which is better?</b>Compare convenience, comfort and time when choosing between a home beauty service and a parlour in Jhansi.</a></div></div>
 <footer><div class="w"><div><b>The Bloomelle House</b><br>Salon &amp; beauty services at your doorstep in Jhansi<br>Mon - Sat, 9 AM - 6 PM</div>
 <div>Call / WhatsApp: <a href="tel:+918318042885">+91 83180 42885</a><br><a href="mailto:thebloomellehouse@gmail.com">thebloomellehouse@gmail.com</a></div>
