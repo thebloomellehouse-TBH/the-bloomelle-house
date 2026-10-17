@@ -373,17 +373,82 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
     </div>
   </section>
 
-  <section id="gallery" style="background:var(--surface)">
-    <div class="wrap">
-      <h2>Gallery &amp; before / after</h2>
-      <p class="sub">Sample looks of the transformations we create.</p>
-      <div class="pairs">
-        <div class="pair"><div class="ba"><figure class="pn"><img src="assets/gallery-bridal-before.jpg" alt="Bridal makeup before" width="800" height="800" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/gallery-bridal-after.jpg" alt="Bridal makeup after" width="800" height="800" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Bridal makeup</h3></div>
-        <div class="pair"><div class="ba"><figure class="pn"><img src="assets/gallery-hair-before.jpg" alt="Hair styling before" width="800" height="800" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/gallery-hair-after.jpg" alt="Hair styling after" width="800" height="800" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Hair styling</h3></div>
-        <div class="pair"><div class="ba"><figure class="pn"><img src="assets/gallery-nails-before.jpg" alt="Nail extensions before" width="800" height="800" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/gallery-nails-after.jpg" alt="Nail extensions after" width="800" height="800" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Nail extensions</h3></div>
-      </div>
+  <!-- ===== FAN DECK GALLERY ===== -->
+<section id="gallery" class="fan">
+  <div class="wrap">
+    <h2>Gallery &amp; before / after</h2>
+    <p class="sub">Real transformations. Tap the front card to flip Before / After, tap a side card to bring it forward.</p>
+    <div class="fstage" id="fstage" aria-roledescription="carousel" aria-label="Before and after gallery">
+      <article class="fc" data-n="Bridal makeup" data-b="assets/gallery-bridal-before.jpg" data-a="assets/gallery-bridal-after.jpg"></article>
+      <article class="fc" data-n="Hair styling" data-b="assets/gallery-hair-before.jpg" data-a="assets/gallery-hair-after.jpg"></article>
+      <article class="fc" data-n="Nail extensions" data-b="assets/gallery-nails-before.jpg" data-a="assets/gallery-nails-after.jpg"></article>
     </div>
-  </section>
+    <div class="fctl">
+      <button id="fprev" aria-label="Previous look">&#8249;</button>
+      <button id="fplay" aria-label="Play or pause slideshow">&#10074;&#10074;</button>
+      <button id="fnext" aria-label="Next look">&#8250;</button>
+    </div>
+    <p class="fcount" id="fcount" aria-live="polite">1 / 3</p>
+    <p class="fcta"><a class="btn" data-wa target="_blank" rel="noopener" href="#">Get this look, book now</a></p>
+  </div>
+</section>
+<style>
+.fan{background:radial-gradient(900px 420px at 50% 0%,#5E1630 0%,transparent 65%),var(--burg2);color:var(--on-burg);overflow:hidden;--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(255,255,255,.08);--g-bgh:rgba(255,255,255,.22);--g-sh:rgba(0,0,0,.35)}
+.fan h2{color:#F8DCD2}.fan .sub{color:#E5CFC8}
+.fstage{position:relative;height:clamp(400px,62vw,500px);margin:10px auto 0;max-width:760px;touch-action:pan-y}
+.fc{position:absolute;left:50%;top:0;width:min(290px,66vw);aspect-ratio:3/4;margin-left:calc(min(290px,66vw) / -2);border-radius:22px;overflow:hidden;cursor:pointer;
+  background:linear-gradient(160deg,#7A2640,#3A0A1B);border:1.5px solid rgba(230,179,165,.55);box-shadow:0 30px 60px -24px rgba(0,0,0,.8);
+  transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s,filter .4s;transform-origin:50% 120%;will-change:transform}
+.fc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s}
+.fc .ib{opacity:0}.fc.sb .ib{opacity:1}.fc.sb .ia{opacity:0}
+.fc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(36,5,16,.92));pointer-events:none}
+.fc .tag{position:absolute;top:14px;left:14px;z-index:2;background:rgba(36,5,16,.78);color:#F6D3C8;font-size:.82rem;padding:4px 14px;border-radius:999px}
+.fc .cap{position:absolute;left:16px;right:16px;bottom:14px;z-index:2}
+.fc .cap b{display:block;font:600 1.6rem/1.1 var(--serif);color:#fff}
+.fc .cap span{font-size:.85rem;color:#E5CFC8}
+.fc:not(.on){filter:brightness(.6)}
+.fctl{display:flex;justify-content:center;gap:14px;margin-top:18px}
+.fctl button{width:48px;height:48px;border-radius:50%;border:1.2px solid rgba(255,255,255,.7);background:rgba(255,255,255,.1);color:#fff;font:400 1.5rem/1 var(--sans);cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.fctl button:hover{background:rgba(255,255,255,.25)}
+.fcount{text-align:center;margin:12px auto 0;font-size:.9rem;color:#E5CFC8}
+.fcta{text-align:center;margin:18px auto 0;max-width:none}
+@media(prefers-reduced-motion:reduce){.fc,.fc img{transition:none}}
+</style>
+<script>
+(function(){
+  var st=document.getElementById("fstage"),cs=[].slice.call(st.children),n=cs.length,i=0,timer=null,playing=true;
+  cs.forEach(function(c){
+    c.setAttribute("tabindex","0");c.setAttribute("role","group");
+    c.innerHTML='<img class="ia" src="'+c.dataset.a+'" alt="'+c.dataset.n+' after" loading="lazy" onerror="this.style.display=\'none\'"><img class="ib" src="'+c.dataset.b+'" alt="'+c.dataset.n+' before" loading="lazy" onerror="this.style.display=\'none\'"><span class="tag">After</span><div class="cap"><b>'+c.dataset.n+'</b><span>Tap to see before</span></div>';
+  });
+  function render(){
+    cs.forEach(function(c,k){
+      var d=((k-i+n+1)%n)-1; // -1,0,1
+      c.classList.toggle("on",d===0);
+      if(d!==0){c.classList.remove("sb");c.querySelector(".tag").textContent="After";}
+      c.style.zIndex=d===0?3:1;
+      c.style.transform="translateX("+(d*58)+"%) rotate("+(d*11)+"deg) scale("+(d===0?1:.88)+")";
+      c.setAttribute("aria-hidden",d===0?"false":"true");
+    });
+    document.getElementById("fcount").textContent=(i+1)+" / "+n;
+  }
+  function go(x){i=(x+n)%n;render()}
+  function tick(){clearInterval(timer);if(playing)timer=setInterval(function(){go(i+1)},4500)}
+  cs.forEach(function(c,k){c.addEventListener("click",function(){
+    if(k!==i){go(k);tick();return}
+    var b=c.classList.toggle("sb");c.querySelector(".tag").textContent=b?"Before":"After";c.querySelector(".cap span").textContent=b?"Tap to see after":"Tap to see before";tick();
+  });c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();c.click()}})});
+  document.getElementById("fprev").onclick=function(){go(i-1);tick()};
+  document.getElementById("fnext").onclick=function(){go(i+1);tick()};
+  var pb=document.getElementById("fplay");
+  pb.onclick=function(){playing=!playing;pb.innerHTML=playing?"&#10074;&#10074;":"&#9654;";tick()};
+  var x0=null;st.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+  st.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));tick()}x0=null});
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches){playing=false;pb.innerHTML="&#9654;"}
+  render();tick();
+})();
+</script>
+<!-- ===== END FAN DECK GALLERY ===== -->
 
   <section id="about">
     <div class="wrap two">
