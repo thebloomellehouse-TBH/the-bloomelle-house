@@ -378,22 +378,27 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
   <div class="wrap">
     <h2>Our Work</h2>
     <p class="sub">Real transformations. Tap a card to compare before and after.</p>
+    <!-- To add a card later: add an <article class="fc" ...> line and upload its before/after photos to /assets. A card with missing photos is hidden automatically. -->
     <div class="fstage" id="fstage" aria-roledescription="carousel" aria-label="Before and after gallery">
-      <article class="fc" data-n="Natural &amp; Minimal Makeup" data-b="assets/gallery-natural-before.jpg" data-a="assets/gallery-natural-after.jpg"></article>
-      <article class="fc" data-n="Engagement &amp; Reception Makeup" data-b="assets/gallery-engagement-before.jpg" data-a="assets/gallery-engagement-after.jpg"></article>
-      <article class="fc" data-n="HD &amp; Airbrush Makeup" data-b="assets/gallery-hd-before.jpg" data-a="assets/gallery-hd-after.jpg"></article>
-      <article class="fc" data-n="Soft Glam &amp; Cocktail Makeup" data-b="assets/gallery-glam-before.jpg" data-a="assets/gallery-glam-after.jpg"></article>
-      <article class="fc" data-n="Professional Hair Styling" data-b="assets/gallery-hair-before.jpg" data-a="assets/gallery-hair-after.jpg"></article>
-      <article class="fc" data-n="Saree Draping" data-b="assets/gallery-saree-before.jpg" data-a="assets/gallery-saree-after.jpg"></article>
-      <article class="fc" data-n="Nail Extensions" data-b="assets/gallery-nails-before.jpg" data-a="assets/gallery-nails-after.jpg"></article>
-      <article class="fc" data-n="Nail Art &amp; Designs" data-b="assets/gallery-nailart-before.jpg" data-a="assets/gallery-nailart-after.jpg"></article>
+      <article class="fc" data-n="Bridal Makeup" data-b="assets/gallery-bridal-makeup-before.jpg" data-a="assets/gallery-bridal-makeup-after.jpg"></article>
+      <article class="fc" data-n="Natural &amp; Minimal Makeup" data-b="assets/gallery-natural-minimal-makeup-before.jpg" data-a="assets/gallery-natural-minimal-makeup-after.jpg"></article>
+      <article class="fc" data-n="Engagement &amp; Reception Makeup" data-b="assets/gallery-engagement-reception-makeup-before.jpg" data-a="assets/gallery-engagement-reception-makeup-after.jpg"></article>
+      <article class="fc" data-n="HD &amp; Airbrush Makeup" data-b="assets/gallery-hd-airbrush-makeup-before.jpg" data-a="assets/gallery-hd-airbrush-makeup-after.jpg"></article>
+      <article class="fc" data-n="Soft Glam &amp; Cocktail Makeup" data-b="assets/gallery-soft-glam-cocktail-makeup-before.jpg" data-a="assets/gallery-soft-glam-cocktail-makeup-after.jpg"></article>
+      <article class="fc" data-n="Party &amp; Occasion Makeup" data-b="assets/gallery-party-occasion-makeup-before.jpg" data-a="assets/gallery-party-occasion-makeup-after.jpg"></article>
+      <article class="fc" data-n="Haldi &amp; Mehendi Makeup" data-b="assets/gallery-haldi-mehendi-makeup-before.jpg" data-a="assets/gallery-haldi-mehendi-makeup-after.jpg"></article>
+      <article class="fc" data-n="Pre-Wedding Photoshoot Makeup" data-b="assets/gallery-pre-wedding-photoshoot-makeup-before.jpg" data-a="assets/gallery-pre-wedding-photoshoot-makeup-after.jpg"></article>
+      <article class="fc" data-n="Professional Hair Styling" data-b="assets/gallery-professional-hair-styling-before.jpg" data-a="assets/gallery-professional-hair-styling-after.jpg"></article>
+      <article class="fc" data-n="Saree &amp; Dupatta Draping" data-b="assets/gallery-saree-dupatta-draping-before.jpg" data-a="assets/gallery-saree-dupatta-draping-after.jpg"></article>
+      <article class="fc" data-n="Gel &amp; Acrylic Nail Extensions" data-b="assets/gallery-gel-acrylic-nail-extensions-before.jpg" data-a="assets/gallery-gel-acrylic-nail-extensions-after.jpg"></article>
+      <article class="fc" data-n="Nail Art &amp; Custom Designs" data-b="assets/gallery-nail-art-custom-designs-before.jpg" data-a="assets/gallery-nail-art-custom-designs-after.jpg"></article>
     </div>
     <div class="fctl">
       <button id="fprev" aria-label="Previous look">&#8249;</button>
       <button id="fplay" aria-label="Play or pause slideshow">&#10074;&#10074;</button>
       <button id="fnext" aria-label="Next look">&#8250;</button>
     </div>
-    <p class="fcount" id="fcount" aria-live="polite">1 / 8</p>
+    <p class="fcount" id="fcount" aria-live="polite"></p>
     <p class="fcta"><a class="btn" data-wa target="_blank" rel="noopener" href="#">Get this look, book now</a></p>
   </div>
 </section>
@@ -401,6 +406,7 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 .fan{background:radial-gradient(900px 420px at 50% 0%,#5E1630 0%,transparent 65%),var(--burg2);color:var(--on-burg);overflow:hidden;--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(255,255,255,.08);--g-bgh:rgba(255,255,255,.22);--g-sh:rgba(0,0,0,.35)}
 .fan h2{color:#F8DCD2}.fan .sub{color:#E5CFC8}
 .fstage{position:relative;height:clamp(400px,62vw,500px);margin:10px auto 0;max-width:760px;touch-action:pan-y}
+.fstage:not(.ready) .fc{visibility:hidden}
 .fc{position:absolute;left:50%;top:0;width:min(290px,66vw);aspect-ratio:3/4;margin-left:calc(min(290px,66vw) / -2);border-radius:22px;overflow:hidden;cursor:pointer;
   background:linear-gradient(160deg,#7A2640,#3A0A1B);border:1.5px solid rgba(230,179,165,.55);box-shadow:0 30px 60px -24px rgba(0,0,0,.8);
   transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s,filter .4s;transform-origin:50% 120%;will-change:transform}
@@ -409,7 +415,7 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 .fc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(36,5,16,.92));pointer-events:none}
 .fc .tag{position:absolute;top:14px;left:14px;z-index:2;background:rgba(36,5,16,.78);color:#F6D3C8;font-size:.82rem;padding:4px 14px;border-radius:999px}
 .fc .cap{position:absolute;left:16px;right:16px;bottom:14px;z-index:2}
-.fc .cap b{display:block;font:600 1.4rem/1.1 var(--serif);color:#fff}
+.fc .cap b{display:block;font:600 1.3rem/1.1 var(--serif);color:#fff}
 .fc .cap span{font-size:.85rem;color:#E5CFC8}
 .fc:not(.on){filter:brightness(.6)}
 .fc.off{opacity:0;pointer-events:none}
@@ -422,39 +428,52 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 </style>
 <script>
 (function(){
-  var st=document.getElementById("fstage"),cs=[].slice.call(st.children),n=cs.length,i=0,timer=null,playing=true;
-  cs.forEach(function(c){
-    c.setAttribute("role","group");
-    c.innerHTML='<img class="ia" src="'+c.dataset.a+'" alt="'+c.dataset.n+' after" loading="lazy" onerror="this.style.display=\'none\'"><img class="ib" src="'+c.dataset.b+'" alt="'+c.dataset.n+' before" loading="lazy" onerror="this.style.display=\'none\'"><span class="tag">After</span><div class="cap"><b>'+c.dataset.n+'</b><span>Tap to see before</span></div>';
+  var st=document.getElementById("fstage"),all=[].slice.call(st.children),ok=[],left=all.length,cs=[],n=0,i=0,timer=null,playing=true,pb=document.getElementById("fplay");
+  // keep only the cards whose "after" photo really exists
+  all.forEach(function(c,k){
+    var im=new Image();
+    im.onload=function(){ok[k]=true;fin()};
+    im.onerror=function(){ok[k]=false;fin()};
+    im.src=c.dataset.a;
   });
-  function render(){
-    cs.forEach(function(c,k){
-      var d=(k-i+n)%n; if(d>n/2)d-=n;          // shortest distance from the front card
-      var vis=Math.abs(d)<=1;                    // front card + one on each side are shown
-      c.classList.toggle("on",d===0);
-      c.classList.toggle("off",!vis);
-      if(d!==0){c.classList.remove("sb");c.querySelector(".tag").textContent="After";c.querySelector(".cap span").textContent="Tap to see before";}
-      c.style.zIndex=d===0?3:(vis?1:0);
-      c.style.transform=vis?"translateX("+(d*58)+"%) rotate("+(d*11)+"deg) scale("+(d===0?1:.88)+")":"translateX(0) scale(.7)";
-      c.setAttribute("aria-hidden",d===0?"false":"true");
-      c.setAttribute("tabindex",d===0?"0":"-1");
+  function fin(){ if(--left>0)return; cs=all.filter(function(c,k){if(!ok[k])c.remove();return ok[k]}); start(); }
+  function start(){
+    n=cs.length;
+    if(!n){document.getElementById("gallery").style.display="none";return}
+    cs.forEach(function(c){
+      c.setAttribute("tabindex","0");c.setAttribute("role","group");
+      c.innerHTML='<img class="ia" src="'+c.dataset.a+'" alt="'+c.dataset.n+' after" loading="lazy"><img class="ib" src="'+c.dataset.b+'" alt="'+c.dataset.n+' before" loading="lazy" onerror="this.style.display=\'none\'"><span class="tag">After</span><div class="cap"><b>'+c.dataset.n+'</b><span>Tap to see before</span></div>';
+      c.addEventListener("click",function(){
+        var k=cs.indexOf(c);
+        if(k!==i){go(k);tick();return}
+        var b=c.classList.toggle("sb");c.querySelector(".tag").textContent=b?"Before":"After";c.querySelector(".cap span").textContent=b?"Tap to see after":"Tap to see before";tick();
+      });
+      c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();c.click()}});
     });
-    document.getElementById("fcount").textContent=(i+1)+" / "+n;
+    function render(){
+      cs.forEach(function(c,k){
+        var d=(k-i+n)%n; if(d>n/2)d-=n;          // shortest distance from the front card
+        var vis=Math.abs(d)<=1;                    // front card + one on each side
+        c.classList.toggle("on",d===0);
+        c.classList.toggle("off",!vis);
+        if(d!==0){c.classList.remove("sb");c.querySelector(".tag").textContent="After";c.querySelector(".cap span").textContent="Tap to see before";}
+        c.style.zIndex=d===0?3:(vis?1:0);
+        c.style.transform=vis?"translateX("+(d*58)+"%) rotate("+(d*11)+"deg) scale("+(d===0?1:.88)+")":"translateX(0) scale(.7)";
+        c.setAttribute("aria-hidden",d===0?"false":"true");
+        c.setAttribute("tabindex",d===0?"0":"-1");
+      });
+      document.getElementById("fcount").textContent=(i+1)+" / "+n;
+    }
+    function go(x){i=(x+n)%n;render()}
+    function tick(){clearInterval(timer);if(playing&&n>1)timer=setInterval(function(){go(i+1)},5000)}
+    document.getElementById("fprev").onclick=function(){go(i-1);tick()};
+    document.getElementById("fnext").onclick=function(){go(i+1);tick()};
+    pb.onclick=function(){playing=!playing;pb.innerHTML=playing?"&#10074;&#10074;":"&#9654;";tick()};
+    var x0=null;st.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+    st.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));tick()}x0=null});
+    if(window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches){playing=false;pb.innerHTML="&#9654;"}
+    render();tick();st.classList.add("ready");
   }
-  function go(x){i=(x+n)%n;render()}
-  function tick(){clearInterval(timer);if(playing)timer=setInterval(function(){go(i+1)},5000)}
-  cs.forEach(function(c,k){c.addEventListener("click",function(){
-    if(k!==i){go(k);tick();return}
-    var b=c.classList.toggle("sb");c.querySelector(".tag").textContent=b?"Before":"After";c.querySelector(".cap span").textContent=b?"Tap to see after":"Tap to see before";tick();
-  });c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();c.click()}})});
-  document.getElementById("fprev").onclick=function(){go(i-1);tick()};
-  document.getElementById("fnext").onclick=function(){go(i+1);tick()};
-  var pb=document.getElementById("fplay");
-  pb.onclick=function(){playing=!playing;pb.innerHTML=playing?"&#10074;&#10074;":"&#9654;";tick()};
-  var x0=null;st.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
-  st.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));tick()}x0=null});
-  if(window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches){playing=false;pb.innerHTML="&#9654;"}
-  render();tick();
 })();
 </script>
 <!-- ===== END FAN DECK GALLERY ===== -->
