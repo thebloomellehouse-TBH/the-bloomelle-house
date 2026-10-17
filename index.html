@@ -339,7 +339,7 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
   <div class="wrap nav">
     <a class="logo" href="#top"><img src="assets/logo-emblem.png" alt="The Bloomelle House logo" width="44" height="44"><span>The Bloomelle House</span></a>
     <nav aria-label="Main">
-      <a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#about">About</a>
+      <a href="#services">Services</a><a href="#gallery">Our Work</a><a href="#about">About</a>
       <a href="#area">Areas</a><a href="#reviews">Reviews</a><a href="blog.html">Blog</a>
     </nav>
     <a class="navbook" href="#book">Book Now</a>
@@ -376,19 +376,24 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
   <!-- ===== FAN DECK GALLERY ===== -->
 <section id="gallery" class="fan">
   <div class="wrap">
-    <h2>Gallery &amp; before / after</h2>
-    <p class="sub">Real transformations. Tap the front card to flip Before / After, tap a side card to bring it forward.</p>
+    <h2>Our Work</h2>
+    <p class="sub">Real transformations. Tap a card to compare before and after.</p>
     <div class="fstage" id="fstage" aria-roledescription="carousel" aria-label="Before and after gallery">
-      <article class="fc" data-n="Bridal makeup" data-b="assets/gallery-bridal-before.jpg" data-a="assets/gallery-bridal-after.jpg"></article>
-      <article class="fc" data-n="Hair styling" data-b="assets/gallery-hair-before.jpg" data-a="assets/gallery-hair-after.jpg"></article>
-      <article class="fc" data-n="Nail extensions" data-b="assets/gallery-nails-before.jpg" data-a="assets/gallery-nails-after.jpg"></article>
+      <article class="fc" data-n="Natural &amp; Minimal Makeup" data-b="assets/gallery-natural-before.jpg" data-a="assets/gallery-natural-after.jpg"></article>
+      <article class="fc" data-n="Engagement &amp; Reception Makeup" data-b="assets/gallery-engagement-before.jpg" data-a="assets/gallery-engagement-after.jpg"></article>
+      <article class="fc" data-n="HD &amp; Airbrush Makeup" data-b="assets/gallery-hd-before.jpg" data-a="assets/gallery-hd-after.jpg"></article>
+      <article class="fc" data-n="Soft Glam &amp; Cocktail Makeup" data-b="assets/gallery-glam-before.jpg" data-a="assets/gallery-glam-after.jpg"></article>
+      <article class="fc" data-n="Professional Hair Styling" data-b="assets/gallery-hair-before.jpg" data-a="assets/gallery-hair-after.jpg"></article>
+      <article class="fc" data-n="Saree Draping" data-b="assets/gallery-saree-before.jpg" data-a="assets/gallery-saree-after.jpg"></article>
+      <article class="fc" data-n="Nail Extensions" data-b="assets/gallery-nails-before.jpg" data-a="assets/gallery-nails-after.jpg"></article>
+      <article class="fc" data-n="Nail Art &amp; Designs" data-b="assets/gallery-nailart-before.jpg" data-a="assets/gallery-nailart-after.jpg"></article>
     </div>
     <div class="fctl">
       <button id="fprev" aria-label="Previous look">&#8249;</button>
       <button id="fplay" aria-label="Play or pause slideshow">&#10074;&#10074;</button>
       <button id="fnext" aria-label="Next look">&#8250;</button>
     </div>
-    <p class="fcount" id="fcount" aria-live="polite">1 / 3</p>
+    <p class="fcount" id="fcount" aria-live="polite">1 / 8</p>
     <p class="fcta"><a class="btn" data-wa target="_blank" rel="noopener" href="#">Get this look, book now</a></p>
   </div>
 </section>
@@ -404,9 +409,10 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 .fc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(36,5,16,.92));pointer-events:none}
 .fc .tag{position:absolute;top:14px;left:14px;z-index:2;background:rgba(36,5,16,.78);color:#F6D3C8;font-size:.82rem;padding:4px 14px;border-radius:999px}
 .fc .cap{position:absolute;left:16px;right:16px;bottom:14px;z-index:2}
-.fc .cap b{display:block;font:600 1.6rem/1.1 var(--serif);color:#fff}
+.fc .cap b{display:block;font:600 1.4rem/1.1 var(--serif);color:#fff}
 .fc .cap span{font-size:.85rem;color:#E5CFC8}
 .fc:not(.on){filter:brightness(.6)}
+.fc.off{opacity:0;pointer-events:none}
 .fctl{display:flex;justify-content:center;gap:14px;margin-top:18px}
 .fctl button{width:48px;height:48px;border-radius:50%;border:1.2px solid rgba(255,255,255,.7);background:rgba(255,255,255,.1);color:#fff;font:400 1.5rem/1 var(--sans);cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .fctl button:hover{background:rgba(255,255,255,.25)}
@@ -418,22 +424,25 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 (function(){
   var st=document.getElementById("fstage"),cs=[].slice.call(st.children),n=cs.length,i=0,timer=null,playing=true;
   cs.forEach(function(c){
-    c.setAttribute("tabindex","0");c.setAttribute("role","group");
+    c.setAttribute("role","group");
     c.innerHTML='<img class="ia" src="'+c.dataset.a+'" alt="'+c.dataset.n+' after" loading="lazy" onerror="this.style.display=\'none\'"><img class="ib" src="'+c.dataset.b+'" alt="'+c.dataset.n+' before" loading="lazy" onerror="this.style.display=\'none\'"><span class="tag">After</span><div class="cap"><b>'+c.dataset.n+'</b><span>Tap to see before</span></div>';
   });
   function render(){
     cs.forEach(function(c,k){
-      var d=((k-i+n+1)%n)-1; // -1,0,1
+      var d=(k-i+n)%n; if(d>n/2)d-=n;          // shortest distance from the front card
+      var vis=Math.abs(d)<=1;                    // front card + one on each side are shown
       c.classList.toggle("on",d===0);
-      if(d!==0){c.classList.remove("sb");c.querySelector(".tag").textContent="After";}
-      c.style.zIndex=d===0?3:1;
-      c.style.transform="translateX("+(d*58)+"%) rotate("+(d*11)+"deg) scale("+(d===0?1:.88)+")";
+      c.classList.toggle("off",!vis);
+      if(d!==0){c.classList.remove("sb");c.querySelector(".tag").textContent="After";c.querySelector(".cap span").textContent="Tap to see before";}
+      c.style.zIndex=d===0?3:(vis?1:0);
+      c.style.transform=vis?"translateX("+(d*58)+"%) rotate("+(d*11)+"deg) scale("+(d===0?1:.88)+")":"translateX(0) scale(.7)";
       c.setAttribute("aria-hidden",d===0?"false":"true");
+      c.setAttribute("tabindex",d===0?"0":"-1");
     });
     document.getElementById("fcount").textContent=(i+1)+" / "+n;
   }
   function go(x){i=(x+n)%n;render()}
-  function tick(){clearInterval(timer);if(playing)timer=setInterval(function(){go(i+1)},4500)}
+  function tick(){clearInterval(timer);if(playing)timer=setInterval(function(){go(i+1)},5000)}
   cs.forEach(function(c,k){c.addEventListener("click",function(){
     if(k!==i){go(k);tick();return}
     var b=c.classList.toggle("sb");c.querySelector(".tag").textContent=b?"Before":"After";c.querySelector(".cap span").textContent=b?"Tap to see after":"Tap to see before";tick();
