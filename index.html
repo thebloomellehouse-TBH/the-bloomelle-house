@@ -321,6 +321,16 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 /* ===== gallery update: square photos, Before / After tags on the right ===== */
 .pn img{aspect-ratio:1/1;object-fit:cover}
 .pn figcaption{white-space:nowrap;left:auto;right:8px}
+
+/* ===== HERO FILL FIX: hero video covers the full first screen, no gap below ===== */
+:root{--hh:64px}
+@media(max-width:700px){:root{--hh:100px}}
+.hero{
+  min-height:calc(100vh - var(--hh));
+  min-height:calc(100svh - var(--hh) - env(safe-area-inset-top,0px));
+}
+@media(max-width:760px){.hero{min-height:calc(100vh - var(--hh));min-height:calc(100svh - var(--hh) - env(safe-area-inset-top,0px))}}
+.herovideo{object-position:center}
 </style>
 </head>
 <body>
@@ -647,6 +657,9 @@ var REVIEWS = [
   document.addEventListener("keydown",function(e){if(e.key==="Escape")close()});
   if(!seen())setTimeout(function(){pop.classList.add("show")},1500);
 })();
+
+/* ====== HERO FILL: measure real header height so hero fills the screen exactly ====== */
+(function(){var h=document.querySelector("header");function s(){document.documentElement.style.setProperty("--hh",h.offsetHeight+"px")}s();addEventListener("resize",s);addEventListener("load",s)})();
 </script>
 </body>
 </html>
