@@ -317,6 +317,10 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 @keyframes bmPop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
 @media(max-width:480px){.bm-close{top:-10px;right:-4px;width:34px;height:34px}.bm-btn{font-size:14px;padding:11px 6px}}
 @media(prefers-reduced-motion:reduce){.bm-overlay.show,.bm-modal{animation:none}}
+
+/* ===== gallery update: square photos, Before / After tags on the right ===== */
+.pn img{aspect-ratio:1/1;object-fit:cover}
+.pn figcaption{white-space:nowrap;left:auto;right:8px}
 </style>
 </head>
 <body>
@@ -363,7 +367,11 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
     <div class="wrap">
       <h2>Gallery &amp; before / after</h2>
       <p class="sub">Sample looks of the transformations we create. Real client photos coming soon.</p>
-      <div class="pairs"><div class="pair"><div class="ba"><figure class="pn"><img src="assets/bridal-before.jpg" alt="Bridal makeup before" width="380" height="702" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/bridal-after.jpg" alt="Bridal makeup after" width="380" height="700" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Bridal makeup</h3></div><div class="pair"><div class="ba"><figure class="pn"><img src="assets/hair-before.jpg" alt="Hair styling before" width="380" height="704" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/hair-after.jpg" alt="Hair styling after" width="380" height="702" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Hair styling</h3></div><div class="pair"><div class="ba"><figure class="pn"><img src="assets/nails-before.jpg" alt="Nail extensions before" width="380" height="702" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/nails-after.jpg" alt="Nail extensions after" width="380" height="704" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Nail extensions</h3></div></div>
+      <div class="pairs">
+        <div class="pair"><div class="ba"><figure class="pn"><img src="assets/gallery-bridal-before.jpg" alt="Bridal makeup before" width="800" height="800" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/gallery-bridal-after.jpg" alt="Bridal makeup after" width="800" height="800" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Bridal makeup</h3></div>
+        <div class="pair"><div class="ba"><figure class="pn"><img src="assets/gallery-hair-before.jpg" alt="Hair styling before" width="800" height="800" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/gallery-hair-after.jpg" alt="Hair styling after" width="800" height="800" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Hair styling</h3></div>
+        <div class="pair"><div class="ba"><figure class="pn"><img src="assets/gallery-nails-before.jpg" alt="Nail extensions before" width="800" height="800" loading="lazy"><figcaption>Before</figcaption></figure><figure class="pn af"><img src="assets/gallery-nails-after.jpg" alt="Nail extensions after" width="800" height="800" loading="lazy"><figcaption>After</figcaption></figure></div><h3>Nail extensions</h3></div>
+      </div>
     </div>
   </section>
 
