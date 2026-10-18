@@ -37,14 +37,14 @@ header{position:sticky;top:0;z-index:10;background:var(--burg2);color:var(--on-b
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
 .logo{font:700 1.45rem var(--serif);text-decoration:none;color:#E6B3A5;display:flex;align-items:center;gap:10px;white-space:nowrap}
 .logo img{width:40px;height:40px;border-radius:50%}
-.navr{display:flex;align-items:center;gap:18px}.navr a.t{text-decoration:none;font-size:.95rem;color:var(--on-burg)}
+nav{display:flex;gap:22px}nav a{text-decoration:none;font-size:.95rem;white-space:nowrap;color:var(--on-burg)}nav a:hover{color:#E0A99A}
+.navbook{background:rgba(255,255,255,.16);border-color:#fff;box-shadow:0 0 0 3px rgba(230,179,165,.28),0 6px 18px -8px rgba(0,0,0,.5);white-space:nowrap}
 .btn{display:inline-block;padding:11px 28px;font:500 .95rem var(--sans);letter-spacing:.02em;text-decoration:none;cursor:pointer;color:#fff;background:rgba(255,255,255,.1);border:1.2px solid rgba(255,255,255,.85);border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .25s,transform .2s}
 .btn:hover{background:rgba(255,255,255,.24);transform:translateY(-1px)}
 .btn.dark{color:var(--burg);background:rgba(58,10,27,.06);border-color:rgba(58,10,27,.6)}
 .btn.dark:hover{background:rgba(58,10,27,.14)}
 .hero{position:relative;overflow:hidden;color:var(--on-burg);padding:120px 0 108px;isolation:isolate;
  background:linear-gradient(90deg,rgba(24,3,10,.94) 0%,rgba(24,3,10,.72) 42%,rgba(24,3,10,.12) 100%),var(--img,none) 60% 40%/cover no-repeat,var(--burg2)}
-.hero .crumb{font-size:.9rem;color:#E5CFC8;margin-bottom:14px}.hero .crumb a{color:#F0C4B6}
 .hero h1{font-size:clamp(2.2rem,7vw,4.4rem);color:#F8DCD2;font-weight:600;margin-bottom:1rem;max-width:16ch}
 .hero p{font-size:1.15rem;color:#F1DDD6;max-width:52ch}.hero .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.4rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
@@ -74,36 +74,68 @@ footer{background:var(--burg2);color:#E5CFC8;padding:36px 0;font-size:.95rem}foo
 .fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20}
 .fab a{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,rgba(94,22,48,.7),rgba(36,5,16,.65));border:1.5px solid rgba(230,179,165,.6);box-shadow:0 10px 24px -8px rgba(36,5,16,.55)}
 .fab svg{width:28px;height:28px;fill:#8BE8AE}
-@media(max-width:700px){section{padding:56px 0}.hero{padding:72px 0 64px;background:linear-gradient(180deg,rgba(24,3,10,.9) 0%,rgba(24,3,10,.72) 55%,rgba(24,3,10,.5) 100%),var(--img,none) 62% 50%/cover no-repeat,var(--burg2)}.logo{font-size:1.15rem}.navr a.t{display:none}.btn{padding:10px 22px}}
+@media(max-width:700px){section{padding:56px 0}.hero{padding:72px 0 64px;background:linear-gradient(180deg,rgba(24,3,10,.9) 0%,rgba(24,3,10,.72) 55%,rgba(24,3,10,.5) 100%),var(--img,none) 62% 50%/cover no-repeat,var(--burg2)}html{scroll-padding-top:110px}.nav{height:auto;flex-wrap:wrap;gap:6px 10px;padding-top:8px;padding-bottom:8px}.logo{order:1;font-size:1.05rem;gap:8px;min-width:0}.logo img{width:34px;height:34px}.navbook{order:2;flex:none;padding:7px 13px;font-size:.85rem}nav{order:3;width:100%;gap:20px}.btn{padding:10px 22px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* ===== Arc Carousel (mehndi styles) ===== */
+#styles{--pad:18px;--cw:168px;--ch:230px;--R:540px;--step:19deg;--off:70px;--cap:215px;--H:calc(var(--pad) + var(--ch) + var(--off) + var(--cap));
+ background:radial-gradient(900px 420px at 50% 0%,#5E1630 0%,transparent 65%),var(--burg2);color:var(--on-burg);overflow:hidden;padding-bottom:40px}
+#styles h2{color:#F8DCD2}#styles .sub{color:#E5CFC8}
+.arc{position:relative;height:var(--H);overflow:hidden;touch-action:pan-y;outline:none}
+.ring{position:absolute;left:50%;top:calc(var(--pad) + var(--ch) / 2 + var(--R));width:0;height:0}
+.mc{position:absolute;left:calc(var(--cw) / -2);top:calc(var(--ch) / -2);width:var(--cw);height:var(--ch);padding:0;border-radius:22px;overflow:hidden;cursor:pointer;color:#fff;
+ border:1.5px solid rgba(230,179,165,.55);background:var(--img,none) 50% 50%/cover no-repeat,linear-gradient(160deg,var(--g1),var(--g2));box-shadow:0 26px 50px -24px rgba(0,0,0,.85);
+ transform:rotate(calc(var(--d,0) * var(--step))) translateY(calc(var(--R) * -1)) scale(var(--s,1));
+ transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .45s,filter .45s;filter:brightness(.55) saturate(.85);-webkit-tap-highlight-color:transparent}
+.mc.on{filter:none;cursor:default;box-shadow:0 0 0 1px rgba(230,179,165,.75),0 30px 60px -22px rgba(230,179,165,.4)}
+.mc.hid{opacity:0;pointer-events:none}.mc.na{transition:none}
+.mc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(24,3,10,.7));pointer-events:none}
+.ml{position:absolute;left:0;right:0;bottom:14px;z-index:1;text-align:center;font:600 1.2rem var(--serif);letter-spacing:.03em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.cap{position:absolute;left:50%;top:calc(var(--pad) + var(--ch) + var(--off));transform:translateX(-50%);width:min(380px,92%);text-align:center}
+.cap .tr{display:flex;align-items:center;justify-content:center;gap:14px}
+.cap h3{font-size:clamp(1.7rem,4.4vw,2.4rem);color:#F8DCD2;transition:opacity .25s,transform .25s}
+.cap p{color:#E5CFC8;font-size:.97rem;margin:8px auto 16px;max-width:36ch;transition:opacity .25s,transform .25s}
+.cap .sw{opacity:0;transform:translateY(6px)}
+.cap .ar{flex:none;width:40px;height:40px;border-radius:50%;border:1.2px solid rgba(255,255,255,.6);background:rgba(255,255,255,.08);color:#fff;font:400 1.5rem/1 var(--sans);cursor:pointer}
+.cap .ar:hover{background:rgba(255,255,255,.22)}
+@media(max-width:700px){#styles{--pad:14px;--cw:116px;--ch:158px;--R:300px;--step:22deg;--off:58px;--cap:235px}.ml{font-size:1rem;bottom:10px}.mc{border-radius:18px}}
+@media(prefers-reduced-motion:reduce){.mc,.cap h3,.cap p{transition:none}}
 </style>
 </head>
 <body>
 <header><div class="wrap nav">
   <a class="logo" href="index.html"><img src="assets/logo-emblem.png" alt="The Bloomelle House logo" width="40" height="40"><span>The Bloomelle House</span></a>
-  <div class="navr"><a class="t" href="index.html#services">All services</a><a class="btn" href="#book">Book Now</a></div>
+  <nav aria-label="Main"><a href="index.html">Home</a><a href="index.html#services">Services</a></nav>
+  <a class="btn navbook" href="#book">Book Now</a>
 </div></header>
 
 <main>
 <section class="hero" style="--img:url(assets/mehndi-hero.jpg)"><div class="wrap">
-  <div class="crumb"><a href="index.html">Home</a> / <a href="index.html#services">Services</a> / Mehndi Art &amp; Design</div>
   <h1>Mehndi Art &amp; Design at Home in Jhansi</h1>
   <p>Fine, detailed henna for brides, family and friends, applied at your doorstep so you can sit back, relax and enjoy the occasion.</p>
-  <div class="row"><a class="btn" data-wa target="_blank" rel="noopener" href="#">Book on WhatsApp</a><a class="btn" href="#styles">See styles</a></div>
+  <div class="row"><a class="btn" data-wa target="_blank" rel="noopener" href="#">Book now</a><a class="btn" href="#styles">See styles</a></div>
 </div></section>
 
 <section id="styles"><div class="wrap">
   <h2>Mehndi styles we create</h2>
   <p class="sub">Tell us your outfit and the look you have in mind. We will suggest a design that suits your hands and your function.</p>
-  <div class="grid">
-    <div class="card"><h3>Bridal Mehndi</h3><p>Full hands and feet with intricate patterns, motifs and a personal touch, planned around your wedding lehenga and jewellery.</p></div>
-    <div class="card"><h3>Arabic Mehndi</h3><p>Flowing vines, bold florals and open spaces that apply quickly and look elegant for parties and festivals.</p></div>
-    <div class="card"><h3>Rajasthani Mehndi</h3><p>Dense, traditional work with peacocks, mandalas, paisleys and fine detailing across the palm and fingers.</p></div>
-    <div class="card"><h3>Indo-Arabic Fusion</h3><p>The richness of Rajasthani work blended with the graceful flow of Arabic patterns, a favourite for engagements and sangeet.</p></div>
-    <div class="card"><h3>Minimal &amp; Contemporary</h3><p>Fingertip designs, bracelets, side-hand and small motifs for those who like a light, modern look.</p></div>
-    <div class="card"><h3>Guest &amp; Family Mehndi</h3><p>Mehndi for mothers, sisters and friends at your function. Ask us about group bookings and extra artists.</p></div>
+</div>
+<div class="arc" id="arc" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Mehndi styles">
+  <div class="ring" id="arcRing">
+    <button class="mc" type="button" data-t="Bridal Mehndi" data-d="Full hands and feet with intricate patterns, motifs and a personal touch, planned around your wedding lehenga and jewellery." style="--img:url(assets/mehndi-bridal.jpg);--g1:#8A2D4A;--g2:#3A0A1B;--rot:0deg"><span class="ml">Bridal</span></button>
+    <button class="mc" type="button" data-t="Arabic Mehndi" data-d="Flowing vines, bold florals and open spaces that apply quickly and look elegant for parties and festivals." style="--img:url(assets/mehndi-arabic.jpg);--g1:#A5624E;--g2:#4A1A22;--rot:22deg"><span class="ml">Arabic</span></button>
+    <button class="mc" type="button" data-t="Rajasthani Mehndi" data-d="Dense, traditional work with peacocks, mandalas, paisleys and fine detailing across the palm and fingers." style="--img:url(assets/mehndi-rajasthani.jpg);--g1:#A07235;--g2:#3A1A10;--rot:45deg"><span class="ml">Rajasthani</span></button>
+    <button class="mc" type="button" data-t="Indo-Arabic Fusion" data-d="The richness of Rajasthani work blended with the graceful flow of Arabic patterns, a favourite for engagements and sangeet." style="--img:url(assets/mehndi-indo-arabic.jpg);--g1:#6B3A5E;--g2:#2A0E22;--rot:12deg"><span class="ml">Indo-Arabic</span></button>
+    <button class="mc" type="button" data-t="Minimal &amp; Contemporary" data-d="Fingertip designs, bracelets, side-hand and small motifs for those who like a light, modern look." style="--img:url(assets/mehndi-minimal.jpg);--g1:#C99A8B;--g2:#7A4A4A;--rot:30deg"><span class="ml">Minimal</span></button>
+    <button class="mc" type="button" data-t="Guest &amp; Family Mehndi" data-d="Mehndi for mothers, sisters and friends at your function. Ask us about group bookings and extra artists." style="--img:url(assets/mehndi-guest.jpg);--g1:#5C6B3A;--g2:#222915;--rot:8deg"><span class="ml">Guest</span></button>
   </div>
-</div></section>
+  <div class="cap">
+    <div class="tr"><button class="ar" id="arcPrev" type="button" aria-label="Previous style">&#8249;</button><h3 id="arcT"></h3><button class="ar" id="arcNext" type="button" aria-label="Next style">&#8250;</button></div>
+    <p id="arcD"></p>
+    <a class="btn" id="arcBook" href="#book">Book this style</a>
+  </div>
+</div>
+</section>
 
 <section class="alt"><div class="wrap two">
   <div>
@@ -200,6 +232,39 @@ f.addEventListener("submit",function(e){
   st.textContent="Opening WhatsApp with your details. Press send to confirm your request.";
   window.open("https://wa.me/"+CFG.phone+"?text="+encodeURIComponent(m),"_blank","noopener");
 });
+
+/* ====== MEHNDI STYLES: ARC CAROUSEL ====== */
+(function(){
+  var arc=document.getElementById("arc"),cs=[].slice.call(document.querySelectorAll("#arcRing .mc")),n=cs.length,i=0,prev=[],timer=null,hover=false,
+      T=document.getElementById("arcT"),D=document.getElementById("arcD"),
+      reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches,half=Math.floor(n/2);
+  function render(first){
+    cs.forEach(function(c,k){
+      var d=(((k-i+half)%n)+n)%n-half;                       // signed distance from the focused card
+      var jump=prev[k]!==undefined&&Math.abs(d-prev[k])>n/2; // card wrapping round the back: don't animate across the arc
+      if(jump||first)c.classList.add("na");
+      c.style.setProperty("--d",d);c.style.setProperty("--s",d===0?1:.92);
+      c.classList.toggle("on",d===0);c.classList.toggle("hid",Math.abs(d)>2);
+      c.setAttribute("aria-hidden",Math.abs(d)>2?"true":"false");c.setAttribute("aria-label",c.dataset.t.replace(/&amp;/g,"&")+(d===0?" (selected)":""));
+      c.tabIndex=d===0?0:-1;
+      if(jump||first){void c.offsetWidth;c.classList.remove("na")}
+      prev[k]=d;
+    });
+    T.classList.add("sw");D.classList.add("sw");
+    setTimeout(function(){T.innerHTML=cs[i].dataset.t;D.textContent=cs[i].dataset.d;T.classList.remove("sw");D.classList.remove("sw")},first?0:200);
+  }
+  function go(k){i=(k%n+n)%n;render(false)}
+  function tick(){clearInterval(timer);if(!reduce)timer=setInterval(function(){if(!hover)go(i+1)},5000)}
+  cs.forEach(function(c,k){c.addEventListener("click",function(){if(k!==i){go(k);tick()}})});
+  document.getElementById("arcPrev").onclick=function(){go(i-1);tick()};
+  document.getElementById("arcNext").onclick=function(){go(i+1);tick()};
+  arc.addEventListener("mouseenter",function(){hover=true});arc.addEventListener("mouseleave",function(){hover=false});
+  arc.addEventListener("keydown",function(e){if(e.key==="ArrowRight"){go(i+1);tick()}else if(e.key==="ArrowLeft"){go(i-1);tick()}});
+  var x0=null;arc.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+  arc.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));tick()}x0=null});
+  document.getElementById("arcBook").addEventListener("click",function(){var s=document.getElementById("style");if(s)s.value=cs[i].dataset.t.replace(/&amp;/g,"&")});   // pre-select the style in the booking form
+  render(true);tick();
+})();
 </script>
 </body>
 </html>
