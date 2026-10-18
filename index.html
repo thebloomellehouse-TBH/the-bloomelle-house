@@ -81,13 +81,11 @@ nav a:hover{color:#E0A99A}
 .herophoto{width:100%;height:auto;display:block;border-radius:22px;border:2px solid var(--rose);box-shadow:0 30px 60px -28px rgba(0,0,0,.7)}
 @media(max-width:760px){.herogrid{grid-template-columns:1fr}}
 
-/* services */
+/* cards (used by the blog section) */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
 .card h3{font-size:1.5rem;margin:.4rem 0 .4rem}
 .card p{color:var(--muted);font-size:.96rem;margin:0}
-/* service photo badge (replaces the emoji) */
-.ico{display:block;width:64px;height:64px;border-radius:50%;background:var(--img) var(--pos,center)/200% auto;border:3px solid #fff;box-shadow:0 0 0 1.5px var(--line),0 6px 14px -6px rgba(58,18,32,.5);margin-bottom:10px}
 
 /* gallery */
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
@@ -194,7 +192,7 @@ footer p{margin:0 0 .5rem}
 .soc a{background:rgba(230,179,165,.12);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1.5px solid rgba(230,179,165,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 6px 14px -8px rgba(36,5,16,.45)}
 .soc a:hover{background:rgba(230,179,165,.9);color:#240510}
 
-/* ===== site-wide linking layer: service cards, blog, 4-col footer ===== */
+/* ===== site-wide linking layer: blog cards, 4-col footer ===== */
 :root{--accent:#8A2D4A}
 a.card{display:block;text-decoration:none;color:inherit}
 a.card h3{color:var(--burg)}
@@ -211,16 +209,7 @@ a.card:hover .more{border-bottom-color:var(--accent)}
 @media(max-width:980px){.fgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.fgrid{grid-template-columns:1fr}}
 footer .flinks li{padding:3px 0}
-#services .grid{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){#services .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){#services .grid{grid-template-columns:1fr}}
 .fab{pointer-events:none}.fab a{pointer-events:auto}
-
-/* ===== service cards: photo watermark behind the text ===== */
-a.card.svc{position:relative;overflow:hidden;isolation:isolate}
-a.card.svc:before{content:"";position:absolute;inset:0;z-index:-1;background:var(--img) 70% 35%/cover;opacity:.2;-webkit-mask-image:linear-gradient(105deg,transparent 30%,#000 100%);mask-image:linear-gradient(105deg,transparent 30%,#000 100%);transition:opacity .3s}
-a.card.svc:hover:before,a.card.svc:focus-visible:before{opacity:.32}
-@media(prefers-reduced-motion:reduce){a.card.svc:before{transition:none}}
 
 /* ===== client reviews: text left, photo right ===== */
 .rwrap{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(20px,5vw,56px);align-items:center}
@@ -331,6 +320,46 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 }
 @media(max-width:760px){.hero{min-height:calc(100vh - var(--hh));min-height:calc(100svh - var(--hh) - env(safe-area-inset-top,0px))}}
 .herovideo{object-position:center}
+
+/* ===== Spotlight Carousel (services) ===== */
+.spot{--w:122px;--wa:380px;--ov:16px;--h:310px;--ha:410px;overflow:hidden}
+.spot .sp-view{overflow:hidden;padding:18px 0 10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);touch-action:pan-y}
+.spot .sp-track{display:flex;align-items:center;width:max-content;height:calc(var(--ha) + 20px);transition:transform .6s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.spot .sc{position:relative;flex:none;display:block;width:var(--w);height:var(--h);margin-left:calc(var(--ov) * -1);border-radius:22px;overflow:hidden;
+  background:var(--img) var(--pos,center)/cover no-repeat,linear-gradient(160deg,#7A2640,#3A0A1B);
+  border:5px solid var(--burg);box-shadow:0 22px 40px -22px rgba(36,5,16,.8);color:#fff;text-decoration:none;cursor:pointer;
+  filter:brightness(.78) saturate(.9);
+  transition:width .6s cubic-bezier(.2,.8,.2,1),height .6s cubic-bezier(.2,.8,.2,1),filter .4s}
+.spot .sc:first-child{margin-left:0}
+.spot .sc.near{height:calc(var(--h) + 36px);filter:brightness(.88)}
+.spot .sc.on{width:var(--wa);height:var(--ha);filter:none;z-index:2;cursor:default}
+.spot .sc:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(36,5,16,.7))}
+/* vertical label on the narrow cards */
+.spot .vt{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);writing-mode:vertical-rl;rotate:180deg;font:600 1.25rem var(--serif);letter-spacing:.04em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.7);white-space:nowrap;transition:opacity .3s}
+.spot .sc.on .vt{opacity:0}
+/* caption opens out on the centre card */
+.spot .cp{position:absolute;left:0;right:0;bottom:0;padding:90px 22px 22px;background:linear-gradient(180deg,transparent,rgba(36,5,16,.94) 60%);opacity:0;transform:translateY(14px);transition:opacity .35s,transform .45s}
+.spot .sc.on .cp{opacity:1;transform:none;transition-delay:.25s}
+.spot .cp h3{font-size:1.9rem;color:#fff;margin:0 0 6px}
+.spot .cp p{color:#F1DDD6;font-size:.95rem;margin:0 0 14px;max-width:none}
+.spot .cp .go{display:inline-block;padding:9px 22px;border-radius:999px;border:1.2px solid rgba(255,255,255,.85);background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font:500 .92rem var(--sans);color:#fff}
+.spot .sc.on:hover .go{background:rgba(255,255,255,.28)}
+/* controls */
+.spot .sp-ctl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:10px}
+.spot .sp-ctl button.ar{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--burg);background:transparent;color:var(--burg);font:400 1.5rem/1 var(--sans);cursor:pointer;transition:background .2s,color .2s}
+.spot .sp-ctl button.ar:hover{background:var(--burg);color:#fff}
+.spot .dots{display:flex;gap:8px}
+.spot .dots button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:var(--line);cursor:pointer;transition:width .3s,background .3s}
+.spot .dots button.on{width:26px;background:var(--accent)}
+@media(max-width:700px){
+  .spot{--w:62px;--wa:236px;--ov:10px;--h:270px;--ha:360px}
+  .spot .sc{border-width:4px;border-radius:18px}
+  .spot .vt{font-size:1.05rem;bottom:12px}
+  .spot .cp{padding:70px 16px 16px}
+  .spot .cp h3{font-size:1.5rem}
+  .spot .cp p{font-size:.88rem;margin-bottom:10px}
+}
+@media(prefers-reduced-motion:reduce){.spot .sp-track,.spot .sc,.spot .cp{transition:none}}
 </style>
 </head>
 <body>
@@ -358,18 +387,26 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
       </div>
   </section>
 
-  <section id="services">
+  <!-- ===== SERVICES: SPOTLIGHT CAROUSEL ===== -->
+  <section id="services" class="spot">
     <div class="wrap">
       <h2>Services</h2>
       <p class="sub">Every service is done at your home, with professional products and tools.</p>
-      <div class="grid">
-        <a class="card svc" style="--img:url(assets/svc-bridal.jpg);--pos:60% 0%" href="bridal-makeup-at-home-jhansi.html"><span class="ico" aria-hidden="true"></span><h3>Bridal Makeup</h3><p>HD, airbrush and long-wear looks for your wedding day and functions.</p><span class="more">View details and book</span></a>
-        <a class="card svc" style="--img:url(assets/svc-party.jpg);--pos:50% 0%" href="party-makeup-at-home-jhansi.html"><span class="ico" aria-hidden="true"></span><h3>Party Makeup</h3><p>Glam looks for engagements, receptions, sangeet and special evenings.</p><span class="more">View details and book</span></a>
-        <a class="card svc" style="--img:url(assets/svc-hair.jpg);--pos:50% 8%" href="hair-styling-at-home-jhansi.html"><span class="ico" aria-hidden="true"></span><h3>Hair Styling</h3><p>Curls, buns, braids, blow-dry and bridal hairdos.</p><span class="more">View details and book</span></a>
-        <a class="card svc" style="--img:url(assets/svc-nails.jpg);--pos:50% 36%" href="nail-extensions-jhansi.html"><span class="ico" aria-hidden="true"></span><h3>Nail Extensions</h3><p>Gel and acrylic extensions with nail art, finished neatly.</p><span class="more">View details and book</span></a>
-        <a class="card svc" style="--img:url(assets/svc-pre.jpg);--pos:45% 30%" href="pre-bridal-packages-jhansi.html"><span class="ico" aria-hidden="true"></span><h3>Pre-Bridal</h3><p>Skin, hair and body care packages in the weeks before your wedding.</p><span class="more">View details and book</span></a>
-        <a class="card svc" style="--img:url(assets/svc-home.jpg);--pos:54% 0%" href="beauty-parlour-at-home-jhansi.html"><span class="ico" aria-hidden="true"></span><h3>Beauty Parlour at Home</h3><p>Makeup, hair, nails and pre-bridal care, all at your doorstep.</p><span class="more">View details and book</span></a>
+    </div>
+    <div class="sp-view" id="spView">
+      <div class="sp-track" id="spTrack" aria-roledescription="carousel" aria-label="Our services">
+        <a class="sc" style="--img:url(assets/svc-bridal.jpg);--pos:60% 0%" href="bridal-makeup-at-home-jhansi.html"><span class="vt">Bridal Makeup</span><span class="cp"><h3>Bridal Makeup</h3><p>HD, airbrush and long-wear looks for your wedding day and functions.</p><span class="go">View details and book</span></span></a>
+        <a class="sc" style="--img:url(assets/svc-party.jpg);--pos:50% 0%" href="party-makeup-at-home-jhansi.html"><span class="vt">Party Makeup</span><span class="cp"><h3>Party Makeup</h3><p>Glam looks for engagements, receptions, sangeet and special evenings.</p><span class="go">View details and book</span></span></a>
+        <a class="sc" style="--img:url(assets/svc-hair.jpg);--pos:50% 8%" href="hair-styling-at-home-jhansi.html"><span class="vt">Hair Styling</span><span class="cp"><h3>Hair Styling</h3><p>Curls, buns, braids, blow-dry and bridal hairdos.</p><span class="go">View details and book</span></span></a>
+        <a class="sc" style="--img:url(assets/svc-nails.jpg);--pos:50% 36%" href="nail-extensions-jhansi.html"><span class="vt">Nail Extensions</span><span class="cp"><h3>Nail Extensions</h3><p>Gel and acrylic extensions with nail art, finished neatly.</p><span class="go">View details and book</span></span></a>
+        <a class="sc" style="--img:url(assets/svc-pre.jpg);--pos:45% 30%" href="pre-bridal-packages-jhansi.html"><span class="vt">Pre-Bridal</span><span class="cp"><h3>Pre-Bridal</h3><p>Skin, hair and body care packages in the weeks before your wedding.</p><span class="go">View details and book</span></span></a>
+        <a class="sc" style="--img:url(assets/svc-home.jpg);--pos:54% 0%" href="beauty-parlour-at-home-jhansi.html"><span class="vt">Beauty Parlour at Home</span><span class="cp"><h3>Beauty Parlour at Home</h3><p>Makeup, hair, nails and pre-bridal care, all at your doorstep.</p><span class="go">View details and book</span></span></a>
       </div>
+    </div>
+    <div class="sp-ctl">
+      <button class="ar" id="spPrev" aria-label="Previous service">&#8249;</button>
+      <div class="dots" id="spDots"></div>
+      <button class="ar" id="spNext" aria-label="Next service">&#8250;</button>
     </div>
   </section>
 
@@ -753,6 +790,38 @@ var REVIEWS = [
 
 /* ====== HERO FILL: measure real header height so hero fills the screen exactly ====== */
 (function(){var h=document.querySelector("header");function s(){document.documentElement.style.setProperty("--hh",h.offsetHeight+"px")}s();addEventListener("resize",s);addEventListener("load",s)})();
+
+/* ====== SERVICES: SPOTLIGHT CAROUSEL ====== */
+(function(){
+  var sec=document.getElementById("services"),view=document.getElementById("spView"),tr=document.getElementById("spTrack"),
+      cs=[].slice.call(tr.children),dotsEl=document.getElementById("spDots"),n=cs.length,i=0,timer=null,hover=false,
+      reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
+  var dots=cs.map(function(c,k){var b=document.createElement("button");b.setAttribute("aria-label","Show "+c.querySelector(".vt").textContent);b.onclick=function(){go(k);tick()};dotsEl.appendChild(b);return b});
+  function px(v){return parseFloat(getComputedStyle(sec).getPropertyValue(v))}
+  function render(){
+    var w=px("--w"),wa=px("--wa"),ov=px("--ov");
+    var x=view.clientWidth/2-(i*(w-ov)+wa/2);   // centre the open card
+    tr.style.transform="translateX("+x+"px)";
+    cs.forEach(function(c,k){
+      var d=Math.abs(k-i);
+      c.classList.toggle("on",d===0);c.classList.toggle("near",d===1);
+      c.setAttribute("aria-current",d===0?"true":"false");
+      dots[k].classList.toggle("on",d===0);
+    });
+  }
+  function go(k){i=(k+n)%n;render()}
+  function tick(){clearInterval(timer);if(!reduce)timer=setInterval(function(){if(!hover)go(i+1)},4500)}
+  cs.forEach(function(c,k){
+    c.addEventListener("click",function(e){if(k!==i){e.preventDefault();go(k);tick()}});   // side cards open first, the centre card follows its link
+  });
+  document.getElementById("spPrev").onclick=function(){go(i-1);tick()};
+  document.getElementById("spNext").onclick=function(){go(i+1);tick()};
+  sec.addEventListener("mouseenter",function(){hover=true});sec.addEventListener("mouseleave",function(){hover=false});
+  var x0=null;view.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+  view.addEventListener("touchend",function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));tick()}x0=null});
+  addEventListener("resize",render);addEventListener("load",render);
+  render();tick();
+})();
 </script>
 </body>
 </html>
