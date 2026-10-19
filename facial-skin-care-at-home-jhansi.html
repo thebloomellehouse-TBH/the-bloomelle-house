@@ -125,8 +125,6 @@ footer{background:var(--burg2);color:#E5CFC8;padding:36px 0;font-size:.95rem}foo
 .mc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(24,3,10,.7));pointer-events:none}
 .ml{position:absolute;left:0;right:0;bottom:12px;z-index:1;text-align:center;font:600 1.05rem/1.15 var(--serif);padding:0 8px;letter-spacing:.02em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
 .pr{position:absolute;top:10px;right:10px;z-index:2;background:linear-gradient(135deg,#F8DCD2,#E6B3A5);color:var(--burg);font:700 1rem/1 var(--sans);padding:6px 11px;border-radius:999px;box-shadow:0 4px 12px -4px rgba(0,0,0,.6)}
-.price{display:inline-block;margin:0 0 10px;background:linear-gradient(135deg,#F8DCD2,#E6B3A5);color:var(--burg);font:700 1.7rem/1 var(--serif);padding:8px 22px;border-radius:999px;box-shadow:0 0 0 4px rgba(230,179,165,.25),0 8px 22px -8px rgba(230,179,165,.6);transition:opacity .25s}
-.price.sw{opacity:0}
 .cap{position:relative;width:min(460px,94%);margin:4px auto 0;text-align:center}
 .cap .tr{display:flex;align-items:center;justify-content:center;gap:14px}
 .cap h3{flex:1;min-height:1.2em;font-size:clamp(1.4rem,3.6vw,1.9rem);color:#F8DCD2;transition:opacity .25s,transform .25s}
@@ -170,9 +168,8 @@ footer{background:var(--burg2);color:#E5CFC8;padding:36px 0;font-size:.95rem}foo
   </div>
   <div class="cap">
     <div class="tr"><button class="ar" id="arcPrev" type="button" aria-label="Previous treatment">&#8249;</button><h3 id="arcT"></h3><button class="ar" id="arcNext" type="button" aria-label="Next treatment">&#8250;</button></div>
-    <div class="price" id="arcP"></div>
     <p id="arcD"></p>
-    <a class="btn" id="arcBook" href="#book">Book this facial</a>
+    <a class="btn" id="arcBook" href="#book">Book Now</a>
     <p class="fine">Final price and timing are confirmed when you book. Results vary with skin type and regular care.</p>
   </div>
 </div>
@@ -290,7 +287,7 @@ f.addEventListener("submit",function(e){
 /* ====== FACIAL TREATMENTS: ARC CAROUSEL ====== */
 (function(){
   var arc=document.getElementById("arc"),cs=[].slice.call(document.querySelectorAll("#arcRing .mc")),n=cs.length,i=0,prev=[],timer=null,hover=false,
-      T=document.getElementById("arcT"),D=document.getElementById("arcD"),P=document.getElementById("arcP"),
+      T=document.getElementById("arcT"),D=document.getElementById("arcD"),B=document.getElementById("arcBook"),
       reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches,half=Math.floor(n/2);
   function render(first){
     cs.forEach(function(c,k){
@@ -304,8 +301,8 @@ f.addEventListener("submit",function(e){
       if(jump||first){void c.offsetWidth;c.classList.remove("na")}
       prev[k]=d;
     });
-    T.classList.add("sw");D.classList.add("sw");P.classList.add("sw");
-    setTimeout(function(){T.innerHTML=cs[i].dataset.t;D.textContent=cs[i].dataset.d;P.textContent=cs[i].dataset.p;T.classList.remove("sw");D.classList.remove("sw");P.classList.remove("sw")},first?0:200);
+    T.classList.add("sw");D.classList.add("sw");
+    setTimeout(function(){T.innerHTML=cs[i].dataset.t;D.textContent=cs[i].dataset.d;B.textContent="Book Now "+cs[i].dataset.p;T.classList.remove("sw");D.classList.remove("sw")},first?0:200);
   }
   function go(k){i=(k%n+n)%n;render(false)}
   function tick(){clearInterval(timer);if(!reduce)timer=setInterval(function(){if(!hover)go(i+1)},5000)}
