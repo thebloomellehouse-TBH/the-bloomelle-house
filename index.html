@@ -337,12 +337,16 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 /* vertical label on the narrow cards */
 .spot .vt{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);writing-mode:vertical-rl;rotate:180deg;font:600 1.25rem var(--serif);letter-spacing:.04em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.7);white-space:nowrap;transition:opacity .3s}
 .spot .sc.on .vt{opacity:0}
-/* caption opens out on the centre card */
+/* caption opens out on the centre card: name, description, "from" price + Explore & Book button */
 .spot .cp{position:absolute;left:0;right:0;bottom:0;padding:90px 22px 22px;background:linear-gradient(180deg,transparent,rgba(36,5,16,.94) 60%);opacity:0;transform:translateY(14px);transition:opacity .35s,transform .45s}
 .spot .sc.on .cp{opacity:1;transform:none;transition-delay:.25s}
 .spot .cp h3{font-size:1.9rem;color:#fff;margin:0 0 6px}
-.spot .cp p{color:#F1DDD6;font-size:.95rem;margin:0 0 14px;max-width:none}
-.spot .cp .go{display:inline-block;padding:9px 22px;border-radius:999px;border:1.2px solid rgba(255,255,255,.85);background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font:500 .92rem var(--sans);color:#fff}
+.spot .cp p{color:#F1DDD6;font-size:.95rem;margin:0 0 16px;max-width:none}
+.spot .cp .row2{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap}
+.spot .cp .pf{font:600 1.65rem/1 var(--sans);color:#fff;white-space:nowrap;letter-spacing:.01em}
+.spot .cp .pf small{font:500 1.2rem var(--sans);color:#D9B26F;margin-right:5px;letter-spacing:0}
+.spot .cp .go{display:inline-flex;align-items:center;gap:10px;margin-left:auto;padding:10px 20px;border-radius:999px;border:1.2px solid rgba(255,255,255,.85);background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font:500 .95rem var(--sans);color:#fff;white-space:nowrap}
+.spot .cp .go i{font-style:normal;font-size:1.15rem;line-height:1}
 .spot .sc.on:hover .go{background:rgba(255,255,255,.28)}
 /* controls */
 .spot .sp-ctl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:10px}
@@ -352,12 +356,15 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 .spot .dots button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:var(--line);cursor:pointer;transition:width .3s,background .3s}
 .spot .dots button.on{width:26px;background:var(--accent)}
 @media(max-width:700px){
-  .spot{--w:62px;--wa:236px;--ov:10px;--h:270px;--ha:360px}
+  .spot{--w:62px;--wa:262px;--ov:10px;--h:270px;--ha:360px}
   .spot .sc{border-width:4px;border-radius:18px}
   .spot .vt{font-size:1.05rem;bottom:12px}
   .spot .cp{padding:70px 16px 16px}
-  .spot .cp h3{font-size:1.5rem}
-  .spot .cp p{font-size:.88rem;margin-bottom:10px}
+  .spot .cp h3{font-size:1.45rem}
+  .spot .cp p{font-size:.86rem;margin-bottom:10px}
+  .spot .cp .pf{font-size:1.05rem}
+  .spot .cp .pf small{font-size:.85rem;margin-right:3px}
+  .spot .cp .go{padding:8px 13px;font-size:.8rem}
 }
 @media(prefers-reduced-motion:reduce){.spot .sp-track,.spot .sc,.spot .cp{transition:none}}
 </style>
@@ -395,14 +402,14 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
     </div>
     <div class="sp-view" id="spView">
       <div class="sp-track" id="spTrack" aria-roledescription="carousel" aria-label="Our services">
-        <a class="sc" style="--img:url(assets/svc-bridal.jpg);--pos:60% 0%" href="bridal-makeup-at-home-jhansi.html"><span class="vt">Bridal Makeup</span><span class="cp"><h3>Bridal Makeup</h3><p>HD, airbrush and long-wear looks for your wedding day and functions.</p><span class="go">View details and book</span></span></a>
-        <a class="sc" style="--img:url(assets/svc-party.jpg);--pos:50% 0%" href="party-makeup-at-home-jhansi.html"><span class="vt">Party Makeup</span><span class="cp"><h3>Party Makeup</h3><p>Glam looks for engagements, receptions, sangeet and special evenings.</p><span class="go">View details and book</span></span></a>
-        <a class="sc" style="--img:url(assets/svc-hair.jpg);--pos:50% 8%" href="hair-styling-at-home-jhansi.html"><span class="vt">Hair Styling</span><span class="cp"><h3>Hair Styling</h3><p>Curls, buns, braids, blow-dry and bridal hairdos.</p><span class="go">View details and book</span></span></a>
-        <a class="sc" style="--img:url(assets/svc-nails.jpg);--pos:50% 36%" href="nail-extensions-jhansi.html"><span class="vt">Nail Extensions</span><span class="cp"><h3>Nail Extensions</h3><p>Gel and acrylic extensions with nail art, finished neatly.</p><span class="go">View details and book</span></span></a>
-        <a class="sc" style="--img:url(assets/svc-pre.jpg);--pos:45% 30%" href="pre-bridal-packages-jhansi.html"><span class="vt">Pre-Bridal</span><span class="cp"><h3>Pre-Bridal</h3><p>Skin, hair and body care packages in the weeks before your wedding.</p><span class="go">View details and book</span></span></a>
-        <a class="sc" style="--img:url(assets/svc-facial.jpg);--pos:50% 20%" href="facial-skin-care-at-home-jhansi.html"><span class="vt">Facials &amp; Skin Care</span><span class="cp"><h3>Facials &amp; Skin Care</h3><p>Cleanups, facials, glow treatments and skin care, done at your doorstep.</p><span class="go">View details and book</span></span></a>
-        <a class="sc" style="--img:url(assets/svc-mehndi.jpg);--pos:90% 50%" href="mehndi-art-design-at-home-jhansi.html"><span class="vt">Mehndi Art &amp; Design</span><span class="cp"><h3>Mehndi Art &amp; Design</h3><p>Bridal, Arabic, Rajasthani and Indo-Arabic mehndi, applied at your doorstep.</p><span class="go">View details and book</span></span></a>
-        <a class="sc" style="--img:url(assets/svc-home.jpg);--pos:54% 0%" href="beauty-parlour-at-home-jhansi.html"><span class="vt">Beauty Parlour at Home</span><span class="cp"><h3>Beauty Parlour at Home</h3><p>Makeup, hair, nails and pre-bridal care, all at your doorstep.</p><span class="go">View details and book</span></span></a>
+        <a class="sc" style="--img:url(assets/svc-bridal.jpg);--pos:60% 0%" href="bridal-makeup-at-home-jhansi.html"><span class="vt">Bridal Makeup</span><span class="cp"><h3>Bridal Makeup</h3><p>HD, airbrush and long-wear looks for your wedding day and functions.</p><span class="row2"><span class="pf"><small>from</small>₹12,999</span><span class="go">Explore &amp; Book</span></span></span></a>
+        <a class="sc" style="--img:url(assets/svc-party.jpg);--pos:50% 0%" href="party-makeup-at-home-jhansi.html"><span class="vt">Party Makeup</span><span class="cp"><h3>Party Makeup</h3><p>Glam looks for engagements, receptions, sangeet and special evenings.</p><span class="row2"><span class="pf"><small>from</small>₹1,999</span><span class="go">Explore &amp; Book</span></span></span></a>
+        <a class="sc" style="--img:url(assets/svc-hair.jpg);--pos:50% 8%" href="hair-styling-at-home-jhansi.html"><span class="vt">Professional Hair Styling</span><span class="cp"><h3>Professional Hair Styling</h3><p>Curls, buns, braids, blow-dry and bridal hairdos.</p><span class="row2"><span class="pf"><small>from</small>₹499</span><span class="go">Explore &amp; Book</span></span></span></a>
+        <a class="sc" style="--img:url(assets/svc-nails.jpg);--pos:50% 36%" href="nail-extensions-jhansi.html"><span class="vt">Nail Extensions &amp; Nail Art</span><span class="cp"><h3>Nail Extensions &amp; Nail Art</h3><p>Gel and acrylic extensions with nail art, finished neatly.</p><span class="row2"><span class="pf"><small>from</small>₹699</span><span class="go">Explore &amp; Book</span></span></span></a>
+        <a class="sc" style="--img:url(assets/svc-pre.jpg);--pos:45% 30%" href="pre-bridal-packages-jhansi.html"><span class="vt">Pre-Bridal Packages</span><span class="cp"><h3>Pre-Bridal Packages</h3><p>Skin, hair and body care packages in the weeks before your wedding.</p><span class="row2"><span class="pf"><small>from</small>₹1,999</span><span class="go">Explore &amp; Book</span></span></span></a>
+        <a class="sc" style="--img:url(assets/svc-facial.jpg);--pos:50% 20%" href="facial-skin-care-at-home-jhansi.html"><span class="vt">Facials &amp; Skin Care</span><span class="cp"><h3>Facials &amp; Skin Care</h3><p>Cleanups, facials, glow treatments and skin care, done at your doorstep.</p><span class="row2"><span class="pf"><small>from</small>₹499</span><span class="go">Explore &amp; Book</span></span></span></a>
+        <a class="sc" style="--img:url(assets/svc-mehndi.jpg);--pos:90% 50%" href="mehndi-art-design-at-home-jhansi.html"><span class="vt">Mehndi Art &amp; Designs</span><span class="cp"><h3>Mehndi Art &amp; Designs</h3><p>Bridal, Arabic, guest and full-hand mehndi, applied at your doorstep.</p><span class="row2"><span class="pf"><small>from</small>₹499</span><span class="go">Explore &amp; Book</span></span></span></a>
+        <a class="sc" style="--img:url(assets/svc-home.jpg);--pos:54% 0%" href="beauty-parlour-at-home-jhansi.html"><span class="vt">Beauty Parlour at Home</span><span class="cp"><h3>Beauty Parlour at Home</h3><p>Makeup, hair, nails and pre-bridal care, all at your doorstep.</p><span class="row2"><span class="pf"><small>from</small>₹499</span><span class="go">Explore &amp; Book</span></span></span></a>
       </div>
     </div>
     <div class="sp-ctl">
