@@ -185,6 +185,9 @@ a.card:hover .more{border-bottom-color:var(--accent)}
 .sectionlink{margin-top:28px}
 .sectionlink a{color:var(--accent);font-weight:500}
 #intro a{color:var(--accent);font-weight:500}
+#intro .wrap{columns:2;column-gap:56px;column-fill:balance;font-size:16px;line-height:1.6}
+#intro p{max-width:none;break-inside:avoid;margin:0 0 1rem}
+@media(max-width:760px){#intro .wrap{columns:1}}
 .blogcards .card{display:flex;flex-direction:column}
 .blogcards .card p{flex:1}
 #blog{background:var(--surface)}
@@ -302,7 +305,7 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
 .herovideo{object-position:center}
 
 /* ===== Spotlight Carousel (services) ===== */
-.spot{--w:122px;--wa:380px;--ov:16px;--h:310px;--ha:410px;overflow:hidden}
+.spot{--w:122px;--wa:380px;--ov:16px;--h:min(310px,38vh);--ha:min(410px,50vh);overflow:hidden;padding:56px 0 32px}
 .spot .sp-view{overflow:hidden;padding:18px 0 10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);touch-action:pan-y}
 .spot .sp-track{display:flex;align-items:center;width:max-content;height:calc(var(--ha) + 20px);transition:transform .6s cubic-bezier(.2,.8,.2,1);will-change:transform}
 .spot .sc{position:relative;flex:none;display:block;width:var(--w);height:var(--h);margin-left:calc(var(--ov) * -1);border-radius:22px;overflow:hidden;
@@ -374,7 +377,7 @@ header,.hero,#book,footer{--g-fg:#fff;--g-bd:rgba(255,255,255,.85);--g-bg:rgba(2
       </div>
   </section>
 
-  <section id="intro" style="padding:64px 0 8px"><div class="wrap">
+  <section id="intro" style="padding:48px 0 16px"><div class="wrap">
       <p>The Bloomelle House brings professional beauty services directly to your doorstep in Jhansi. Enjoy personalized beauty care without travelling to a salon or waiting for an appointment at a parlour.</p>
       <p>From <a href="bridal-makeup-at-home-jhansi.html">bridal</a> and <a href="party-makeup-at-home-jhansi.html">party makeup</a> to <a href="hair-styling-at-home-jhansi.html">professional hairstyling</a>, <a href="nail-extensions-jhansi.html">nail extensions</a>, <a href="pre-bridal-packages-jhansi.html">pre-bridal treatments</a>, <a href="mehndi-art-design-at-home-jhansi.html">mehndi</a> and <a href="beauty-essentials-add-on-services-at-home-jhansi.html">everyday beauty essentials</a>, we offer a range of services designed around your beauty needs and special occasions.</p>
       <p>Our doorstep beauty service focuses on convenience, personal attention, professional tools and a comfortable experience for women. Whether you are preparing for your wedding, attending a celebration or simply looking for regular beauty care, our team is here to help.</p>
